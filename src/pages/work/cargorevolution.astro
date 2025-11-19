@@ -1,0 +1,81 @@
+---
+// src/pages/cargo-revolution.astro
+import WorkLayout from "../../layouts/WorkLayout.astro";
+import WorkPara from "../../components/WorkPara.astro";
+import WorkItemWide from "../../components/WorkItemWide.astro";
+import WorkGrid from "../../components/WorkGrid.astro";
+import WorkItem from "../../components/WorkItem.astro";
+---
+
+<WorkLayout title="Cargo Revolution">
+  <WorkPara title="A revolution on wheels.">
+    <p class="case-intro">
+      The Cargo Revolution is a rallying cry for urban businesses to switch to zero carbon
+      deliveries.
+    </p>
+    <p class="case-intro">
+      A great opportunity to create an identity that allows everyone—from councils to businesses
+      to riders—to celebrate the passion, energy and real progress made by this community.
+    </p>
+  </WorkPara>
+
+  <WorkItemWide
+    type="image"
+    src="/images/cargorevolution/Cargo-1.avif"
+    alt="Cargo Revolution project"
+  />
+
+  <WorkGrid columns={2}>
+    <WorkItem
+      type="image"
+      src="/images/cargorevolution/Cargo-2.avif"
+      alt="Cargo Revolution project"
+    />
+    <WorkItem
+      type="image"
+      src="/images/cargorevolution/Cargo-3.avif"
+      alt="Cargo Revolution project"
+    />
+  </WorkGrid>
+
+  <WorkItemWide
+    type="image"
+    src="/images/cargorevolution/Cargo-4.avif"
+    alt="Cargo Revolution project"
+  />
+
+  <WorkGrid columns={2}>
+    <WorkItem
+      type="image"
+      src="/images/cargorevolution/Cargo-6.avif"
+      alt="Cargo Revolution project"
+    />
+    <WorkItem
+      type="image"
+      src="/images/cargorevolution/Cargo-7.avif"
+      alt="Cargo Revolution project"
+    />
+    <WorkItem
+      type="image"
+      src="/images/cargorevolution/Cargo-8.avif"
+      alt="Cargo Revolution project"
+    />
+    <WorkItem
+      type="image"
+      src="/images/cargorevolution/Cargo-9.avif"
+      alt="Cargo Revolution project"
+    />
+  </WorkGrid>
+
+  <WorkItemWide
+    type="image"
+    src="/images/cargorevolution/Cargo-10.avif"
+    alt="Cargo Revolution project"
+  />
+
+  <WorkItemWide
+    type="image"
+    src="/images/cargorevolution/Cargo-11.avif"
+    alt="Cargo Revolution project"
+  />
+</WorkLayout>

@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>In Progress - Home</title><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.core.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.theme.min.css"><script data-goatcounter="https://inprogress.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></head> <body> <header> <nav> <!-- Keep the same structure as the original site so CSS and scripts work the same way.
+             - .hero-section contains the logo (SVG or external image).
+             - .title matches existing CSS that positions the site title.
+        --> <section class="hero-section"> <img src="/images/logo.svg" alt="In Progress logo" class="Layer_2 logo"> </section> <div class="title"> <a href="/"><h1 id="site-title">In Progress</h1></a> </div> <div class="nav-links" aria-label="Main navigation"> <a href="/work/">Work</a> <a href="/about/">Studio</a> <a href="https://instagram.com/inprogress_studio" target="_blank">Follow</a> </div> </nav> </header>  <section class="intro"> <div class="container"> <h1>Design makes <br>good work better.</h1> <a href="/work/" style="border-bottom: none"> <video autoplay muted loop playsinline> <source src="/images/IP-Intro-25_2.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video> </a> </div> </section> <section class="more"> <div class="container"> <h2 style="color: #fff; font-size: 3em;">Clarity. Confidence. Collaboration.</h2> <p style="color: #fff; text-align: left; font-size: 1.5em">
+We specialise in branding and design for nonprofits, grassroots campaigns and responsible companies.
+</p> <a class="button" href="/work" style="color: #fff">Our Work →</a> </div> <div class="glide"> <div class="glide__track" data-glide-el="track"> <ul class="glide__slides"> <li class="glide__slide"> <a href="/afn/"> <img src="/images/InProgress-Home-AFN.avif" alt="Slide 1" loading="lazy"> <span class="image-title">Agency for Nature</span> </a> </li> <li class="glide__slide"> <a href="/deartomorrow/"> <img src="/images/InProgress-Home-DearTomorrow.avif" alt="Slide 2" loading="lazy"> <span class="image-title">Dear Tomorrow</span> </a> </li> <li class="glide__slide"> <a href="/gagnd/"> <img src="/images/InProgress-Home-GAGND.avif" alt="Slide 3" loading="lazy"> <span class="image-title">The Global Alliance for a Green New Deal</span> </a> </li> <li class="glide__slide"> <a href="/pff/"> <img src="/images/InProgress-Home-PFFUK.avif" alt="Slide 4" loading="lazy"> <span class="image-title">Parents for Future UK</span> </a> </li> <li class="glide__slide"> <a href="/purposedisruptors/"> <img src="/images/InProgress-Home-PurposeDisruptors2.avif" alt="Slide 5" loading="lazy"> <span class="image-title">Purpose Disruptors</span> </a> </li> </ul> </div> <div class="glide__arrows" data-glide-el="controls"> <button class="glide__arrow glide__arrow--left" data-glide-dir="<">←</button> <button class="glide__arrow glide__arrow--right" data-glide-dir=">">→</button> </div> </div> </section> <div class="container"> <div class="highlight-grid"> <div class="highlight-item" style="background: url(/images/whatisabrand/images/1-Brand-Toolkit.jpg) no-repeat center"></div> <div class="highlight-item"> <h2>What is a brand?</h2> <p>Story, personality and perception - a brand is more than you might think.</p> <a class="button" href="/whatisabrand/">Read the article →</a> </div> </div> </div>  <footer> <p>© M Andrews Studio Ltd trading as In Progress</p> </footer> <!-- Load client-side scripts in order and only in the browser. --> <script type="module">
+      // helper to load an external script and return a promise
+      function loadScript(src, attrs = {}) {
+        return new Promise((resolve, reject) => {
+          const s = document.createElement('script');
+          s.src = src;
+          Object.keys(attrs).forEach(k => s.setAttribute(k, attrs[k]));
+          s.onload = () => resolve(s);
+          s.onerror = () => reject(new Error('Failed to load ' + src));
+          document.head.appendChild(s);
+        });
+      }
+
+      // Run only in the browser — load Glide first, then glide-init. logo-rotate is independent.
+      (async () => {
+        try {
+          // Load logo-rotate early (it guards for missing nodes)
+          await loadScript('/js/logo-rotate.js');
+
+          // Load Glide from CDN, then our init script which checks for Glide
+          await loadScript('https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/glide.min.js');
+          await loadScript('/js/glide-init.js');
+        } catch (e) {
+          // Fail silently but keep a console message for debugging
+          console.warn('Client script load error:', e);
+        }
+      })();
+    </script> </body> </html>

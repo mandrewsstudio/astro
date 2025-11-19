@@ -1,0 +1,77 @@
+---
+// src/pages/agency-for-nature.astro
+import WorkLayout from "../../layouts/WorkLayout.astro";
+import WorkPara from "../../components/WorkPara.astro";
+import WorkItemWide from "../../components/WorkItemWide.astro";
+import WorkGrid from "../../components/WorkGrid.astro";
+import WorkItem from "../../components/WorkItem.astro";
+---
+
+<WorkLayout title="Agency for Nature">
+  <WorkPara title="What if nature had its own agency?">
+    <p class="case-intro">
+      The Agency for Nature from Purpose Disruptors brings together the best young creative talent
+      to work for the most sought after client: Mother Nature.
+    </p>
+    <p class="case-intro">
+      Our vibrant and unexpected campaign identity reflects the weirdness as well as the beauty of
+      nature, designed to come to life on social media and online, and in landmark creative
+      events.
+    </p>
+    <p class="case-intro">Check out the creatives' work at agencyfornature.com</p>
+  </WorkPara>
+
+  <WorkItemWide
+    type="image"
+    src="/images/agencyfornature/Agency-for-Nature-1.avif"
+    alt="Agency for Nature project"
+  />
+
+  <WorkGrid columns={2}>
+    <WorkItem
+      type="image"
+      src="/images/agencyfornature/Agency-for-Nature-2.avif"
+      alt="Agency for Nature project"
+    />
+    <WorkItem
+      type="image"
+      src="/images/agencyfornature/Agency-for-Nature-3.avif"
+      alt="Agency for Nature project"
+    />
+  </WorkGrid>
+
+  <WorkItemWide
+    type="image"
+    src="/images/agencyfornature/Agency-for-Nature-4.avif"
+    alt="Agency for Nature project"
+  />
+
+  <WorkGrid columns={2}>
+    <WorkItem
+      type="image"
+      src="/images/agencyfornature/Agency-for-Nature-6.avif"
+      alt="Agency for Nature project"
+    />
+    <WorkItem
+      type="image"
+      src="/images/agencyfornature/Agency-for-Nature-7.avif"
+      alt="Agency for Nature project"
+    />
+    <WorkItem
+      type="image"
+      src="/images/agencyfornature/Agency-for-Nature-8.avif"
+      alt="Agency for Nature project"
+    />
+    <WorkItem
+      type="image"
+      src="/images/agencyfornature/Agency-for-Nature-9.avif"
+      alt="Agency for Nature project"
+    />
+  </WorkGrid>
+
+  <WorkItemWide
+    type="image"
+    src="/images/agencyfornature/Agency-for-Nature-10.avif"
+    alt="Agency for Nature project"
+  />
+</WorkLayout>

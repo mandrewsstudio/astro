@@ -1,0 +1,76 @@
+---
+// src/pages/parents-for-future.astro
+import WorkLayout from "../../layouts/WorkLayout.astro";
+import WorkPara from "../../components/WorkPara.astro";
+import WorkItemWide from "../../components/WorkItemWide.astro";
+import WorkGrid from "../../components/WorkGrid.astro";
+import WorkItem from "../../components/WorkItem.astro";
+---
+
+<WorkLayout title="Parents for Future UK">
+  <WorkPara title="A growing movement of grown-ups.">
+    <p class="case-intro">
+      Parents for Future is for all parents, not just activists.
+    </p>
+    <p class="case-intro">
+      Their brand is an invitation to other parents to join the movement, and a message to those
+      in power. Bold typography and a broad colour palette creates unexpected combinations,
+      helping PFF communicate a spectrum of emotions from sober and urgent to joyful and
+      celebratory.
+    </p>
+  </WorkPara>
+
+  <WorkItemWide
+    type="image"
+    src="/images/parentsforfuture/PFF-1.avif"
+    alt="Parents for Future project"
+  />
+
+  <WorkGrid columns={2}>
+    <WorkItem
+      type="image"
+      src="/images/parentsforfuture/PFF-2.avif"
+      alt="Parents for Future project"
+    />
+    <WorkItem
+      type="image"
+      src="/images/parentsforfuture/PFF-3.avif"
+      alt="Parents for Future project"
+    />
+  </WorkGrid>
+
+  <WorkItemWide
+    type="image"
+    src="/images/parentsforfuture/PFF-4.avif"
+    alt="Parents for Future project"
+  />
+
+  <WorkGrid columns={2}>
+    <WorkItem
+      type="image"
+      src="/images/parentsforfuture/PFF-6.avif"
+      alt="Parents for Future project"
+    />
+    <WorkItem
+      type="image"
+      src="/images/parentsforfuture/PFF-7.avif"
+      alt="Parents for Future project"
+    />
+    <WorkItem
+      type="image"
+      src="/images/parentsforfuture/PFF-8.avif"
+      alt="Parents for Future project"
+    />
+    <WorkItem
+      type="image"
+      src="/images/parentsforfuture/PFF-9.avif"
+      alt="Parents for Future project"
+    />
+  </WorkGrid>
+
+  <WorkItemWide
+    type="image"
+    src="/images/parentsforfuture/PFF-10.avif"
+    alt="Parents for Future project"
+  />
+</WorkLayout>

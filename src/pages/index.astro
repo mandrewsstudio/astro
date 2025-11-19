@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import Glide from '../components/Glide.astro';
+import HomeShowcase from '../components/HomeShowcase.astro';
+---
+<Layout title="Design makes good work better.">
+  <section class="intro">
+    <div class="container">
+      <h1>Design makes <br/>good work better.</h1>
+      <a href="/work/" style="border-bottom: none">
+        <video autoplay muted loop playsinline>
+          <source src="/images/IP-Intro-25_2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </a>
+    </div>
+  </section>
+
+  <section class="more">
+    <div class="container">
+      <h2 style="color: #fff; font-size: 3em;">Clarity. Confidence. Collaboration.</h2>
+
+      <p style="color: #fff; text-align: left; font-size: 1.5em">
+        We specialise in branding and design for nonprofits, grassroots campaigns and responsible companies.
+      </p>
+
+      <a class="button" href="/work" style="color: #fff">Our Work →</a>
+    </div>
+    <HomeShowcase />
+          <div class="container"><h2><a href="/work" style="color: #fff">See all work →</a></h2></div>
+
+  </section>
+
+  <div class="container">
+    <div class="highlight-grid">
+      <div class="highlight-item" style="background: url('/images/whatisabrand/1-Brand-Toolkit.jpg') no-repeat center; background-size: cover;"></div>
+      <div class="highlight-item">
+        <h2>What is a brand?</h2>
+        <p>Story, personality and perception - a brand is more than you might think.</p>
+        <a class="button" href="/whatisabrand/">Read the article →</a>
+      </div>
+    </div>
+  </div>
+</Layout>

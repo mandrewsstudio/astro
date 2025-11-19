@@ -1,0 +1,14 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<div class="work-para">
+  {title && <h2>{title}</h2>}
+  {subtitle && <h3>{subtitle}</h3>}
+  <slot />
+</div>

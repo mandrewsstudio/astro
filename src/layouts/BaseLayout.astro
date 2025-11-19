@@ -1,0 +1,26 @@
+---
+const { title = 'In Progress' } = Astro.props;
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} - In Progress Studio - Branding and design for nonprofits</title>
+    <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.core.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.theme.min.css" />
+    <script data-goatcounter="https://inprogress.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  </head>
+  <body>
+    <header>
+        <Navigation />
+    </header>
+    <slot />
+   <Footer />
+
+    
+  </body>
+</html>

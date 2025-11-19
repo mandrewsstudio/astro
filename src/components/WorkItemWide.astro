@@ -1,0 +1,21 @@
+---
+export interface Props {
+  type: 'image' | 'video';
+  src: string;
+  alt?: string;
+  videoType?: string;
+}
+
+const { type, src, alt = '', videoType = 'video/mp4' } = Astro.props;
+---
+
+<div class="work-item-wide">
+  {type === 'video' ? (
+    <video autoplay muted loop playsinline>
+      <source src={src} type={videoType} />
+      Your browser does not support the video tag.
+    </video>
+  ) : (
+    <img src={src} alt={alt} />
+  )}
+</div>

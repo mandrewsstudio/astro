@@ -1,0 +1,135 @@
+        <section id="showcase">
+            <div class="container" style="padding-top: 0px!important;">
+                <div class="work-grid">
+                <div class="work-item" data-label="Our Kids' Climate">
+                    <a href="../work/ourkidsclimate/" style="border-bottom: none">
+                        <video autoplay muted loop playsinline>
+                            <source src="../images/ourkidsclimate/OKC-Endframe-Landscape.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </a>
+                </div>
+                    <div class="work-item" data-label="Dear Tomorrow">
+                        <a href="../work/deartomorrow">
+                            <img src="../images/InProgress-Home-DearTomorrow.avif" alt="Project 4" />
+                        </a>
+                    </div>
+                <div class="work-item" data-label="Purpose Disruptors">
+                        <a href="../work/purposedisruptors/">
+                            <img src="../images/InProgress-Home-PurposeDisruptors.avif" alt="Project 2" />
+                        </a>
+                    </div>
+                    <div class="work-item" data-label="Carspreading">
+                        <a href="../work/carspreading/">
+                            <img src="../images/InProgress-Home-Carspreading.avif" alt="Project 2" />
+                        </a>
+                    </div>
+
+                    <div class="work-item" data-label="Agency for Nature">
+                        <a href="../work/agencyfornature/">
+                            <img src="../images/InProgress-Home-AFN.avif" alt="Project 1" />
+                        </a>
+                    </div>
+                    
+
+                    <div class="work-item" data-label="Cargo Revolution">
+                        <a href="../work/cargorevolution/">
+                            <img src="../images/InProgress-Home-Cargo.avif" alt="Project 3" />
+                        </a>
+                    </div>
+                    <div class="work-item" data-label="Parents for Future">
+                        <a href="../work/pff/">
+                            <img src="../images/InProgress-Home-PFFUK2.avif" alt="Project 3" />
+                        </a>
+                    </div>
+
+                    <div class="work-item" data-label="Global Alliance">
+                        <a href="../work/globalalliance/">
+                            <img src="../images/InProgress-Home-GAGND.avif" alt="Project 4" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+<script>
+(function () {
+    if (typeof window === "undefined") return;
+
+    window.addEventListener("DOMContentLoaded", () => {
+        // --- Cursor label ---
+        let cursorLabelEl = document.getElementById("cursor-label");
+        
+        if (!cursorLabelEl) {
+            const cursorLabel = document.createElement("div");
+            cursorLabel.id = "cursor-label";
+            // Minimal inline styles so it works without extra CSS
+            Object.assign(cursorLabel.style, {
+                position: "fixed",
+                pointerEvents: "none",
+                zIndex: "9999",
+                opacity: "0",
+                transition: "opacity 120ms ease, transform 80ms linear",
+                transform: "translateY(0)",
+                left: "0px",
+                top: "0px",
+                whiteSpace: "nowrap",
+                fontSize: "20px",
+                padding: "2px 7px",
+                background: "rgba(0,0,0,0.75)",
+                color: "#fff",
+                borderRadius: "4px",
+            });
+            document.body.appendChild(cursorLabel);
+            cursorLabelEl = document.getElementById("cursor-label");
+        }
+
+        // Add null check here
+        if (!cursorLabelEl) {
+            console.error('Cursor label element not found');
+            return;
+        }
+
+        // Track mousemove with rAF for smooth updates
+        let pending = false;
+        let mouseX = 0, mouseY = 0;
+        
+        function updateLabelPosition() {
+            pending = false;
+            // Add safety check
+            if (cursorLabelEl) {
+                cursorLabelEl.style.left = mouseX + 10 + "px";
+                cursorLabelEl.style.top = mouseY + 30 + "px";
+            }
+        }
+
+        document.querySelectorAll("[data-label]").forEach((el) => {
+            // Cast to HTMLElement to access dataset property
+            const htmlEl = el as HTMLElement;
+            
+            htmlEl.addEventListener("mouseenter", () => {
+                if (cursorLabelEl) {
+                    cursorLabelEl.textContent = htmlEl.dataset.label || "";
+                    cursorLabelEl.style.opacity = "1";
+                }
+            });
+
+            htmlEl.addEventListener("mouseleave", () => {
+                if (cursorLabelEl) {
+                    cursorLabelEl.style.opacity = "0";
+                }
+            });
+
+            htmlEl.addEventListener("mousemove", (e) => {
+                // Cast to MouseEvent to access clientX/clientY
+                const mouseEvent = e as MouseEvent;
+                mouseX = mouseEvent.clientX;
+                mouseY = mouseEvent.clientY;
+                if (!pending && cursorLabelEl) {
+                    pending = true;
+                    requestAnimationFrame(updateLabelPosition);
+                }
+            });
+        });
+    });
+})();
+</script>
