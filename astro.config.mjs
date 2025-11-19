@@ -5,6 +5,7 @@ import mdx from '@astrojs/mdx';
 export default defineConfig({
   integrations: [mdx()],
    site: 'https://mandrewsstudio.github.io',
+     base: '/astro', // Remove this if using custom domain
   output: 'static',
   build: {
     format: 'directory'
