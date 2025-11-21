@@ -11,9 +11,17 @@ content:
       - name: title
         label: Title
         type: string
-      - name: date
-        label: Date
-        type: date
+      - name: body
+        label: Content
+        type: rich-text
+  - name: ourkidsclimate
+    label: "Our Kids' Climate"
+    type: collection
+    path: src/content/ourkidsclimate
+    fields:
+      - name: title
+        label: Title
+        type: string
       - name: body
         label: Content
         type: rich-text
