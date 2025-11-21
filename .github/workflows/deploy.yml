@@ -1,5 +1,5 @@
-# .github/workflows/deploy.yml
-name: Deploy to GitHub Pages
+# .github/workflows/deploy-fixed.yml
+name: Deploy to GitHub Pages with Base Path
 
 on:
   push:
@@ -9,10 +9,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   build:
@@ -30,13 +26,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
-      - name: Build with debug
+      - name: Build
+        run: npm run build
+        
+      - name: Fix build output for GitHub Pages
         run: |
-          npm run build
-          echo "=== Build output structure ==="
-          find dist -type f -name "*.html" | head -3
-          echo "=== CSS files ==="
-          find dist -name "*.css" | head -3
+          # When base is '/astro', Astro might put files in dist/astro/
+          # But GitHub Pages expects them at dist/
+          if [ -d "dist/astro" ]; then
+            echo "Moving files from dist/astro to dist"
+            mv dist/astro/* dist/
+            rm -rf dist/astro
+          fi
+          echo "Final dist structure:"
+          ls -la dist/
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
