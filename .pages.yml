@@ -1,0 +1,19 @@
+media:
+  input: src/assets/images
+  output: /images
+
+content:
+  - name: home
+    label: "Homepage"
+    type: collection
+    path: src/content/home
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: date
+        label: Date
+        type: date
+      - name: body
+        label: Content
+        type: rich-text
