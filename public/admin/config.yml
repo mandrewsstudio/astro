@@ -1,0 +1,17 @@
+backend:
+  name: github
+  repo: mandrewsstudio/astro  # GitHub repo
+  branch: main                   # Branch to commit content to
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "home"
+    label: "Home"
+    folder: "src/content/home"   # Where your markdown files live
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }

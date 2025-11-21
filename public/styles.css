@@ -106,6 +106,7 @@ footer h4 {
     letter-spacing: -2%;
     line-height: 98%;
     padding-bottom: 25px;
+    max-width: 500px
 }
 
 /* ==================== */
@@ -177,9 +178,10 @@ max-width: 800px;
 
 .more p {
     font-size: 1.8rem;
-    text-align: center;
+    text-align: left;
     max-width: 680px;
     margin: 1em 0;
+    color: #fff;
 }
 
 #work-header p {

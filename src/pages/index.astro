@@ -1,44 +1,75 @@
 ---
 import Layout from '../layouts/BaseLayout.astro';
-import Glide from '../components/Glide.astro';
 import HomeShowcase from '../components/HomeShowcase.astro';
+
+import { getEntryBySlug } from "astro:content";
+
+// Load markdown sections
+const section1 = await getEntryBySlug("home", "section1");
+const section2 = await getEntryBySlug("home", "section2");
+const section3 = await getEntryBySlug("home", "section3");
+const section4 = await getEntryBySlug("home", "section4");
+const section5 = await getEntryBySlug("home", "section5");
+
+// Prepare compiled HTML for each section
+const { Content: Section1Content } = await section1.render();
+const { Content: Section2Content } = await section2.render();
+const { Content: Section3Content } = await section3.render();
 ---
-<Layout title="Design makes good work better.">
+<Layout title={section1.data.title}>
+  
+  <!-- section1 SECTION -->
   <section class="intro">
     <div class="container">
-      <h1>Design makes <br/>good work better.</h1>
+      <h1>{section1.data.title}</h1>
       <a href="/work/" style="border-bottom: none">
         <video autoplay muted loop playsinline>
-          <source src="/images/IP-Intro-25_2.mp4" type="video/mp4" />
+          <source src='/images/IP-Intro-25_2.mp4' type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </a>
     </div>
   </section>
 
+  <!-- TAGLINE SECTION -->
   <section class="more">
     <div class="container">
-      <h2 style="color: #fff; font-size: 3em;">Clarity. Confidence. Collaboration.</h2>
+      <h2 style="color: #fff; font-size: 3em;">{section2.data.title}</h2>
 
-      <p style="color: #fff; text-align: left; font-size: 1.5em">
-        We specialise in branding and design for nonprofits, grassroots campaigns and responsible companies.
-      </p>
+      <div style="color: #fff; text-align: left!important; font-size: 1.5em!important">
+        <Section2Content />
+      </div>
 
-      <a class="button" href="/work" style="color: #fff">Our Work →</a>
+      <a class="button" href={section2.data.buttonLink} style="color: #fff">
+        {section2.data.buttonText}
+      </a>
     </div>
-    <HomeShowcase />
-          <div class="container"><h2><a href="/work" style="color: #fff">See all work →</a></h2></div>
 
+    <HomeShowcase />
+
+    <div class="container">
+      <h2>
+        <a href="/work" style="color: #fff">See all work →</a>
+      </h2>
+    </div>
   </section>
 
+  <!-- HIGHLIGHT SECTION -->
   <div class="container">
     <div class="highlight-grid">
-      <div class="highlight-item" style="background: url('/images/whatisabrand/1-Brand-Toolkit.jpg') no-repeat center; background-size: cover;"></div>
+      <div 
+        class="highlight-item" 
+        style={`background: url('${section3.data.image}') no-repeat center; background-size: cover;`}
+      ></div>
+
       <div class="highlight-item">
-        <h2>What is a brand?</h2>
-        <p>Story, personality and perception - a brand is more than you might think.</p>
-        <a class="button" href="/whatisabrand/">Read the article →</a>
+        <h2>{section3.data.title}</h2>
+        <Section3Content />
+        <a class="button" href={section3.data.buttonLink}>
+          {section3.data.buttonText}
+        </a>
       </div>
     </div>
   </div>
+
 </Layout>
