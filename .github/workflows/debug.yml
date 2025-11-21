@@ -1,0 +1,33 @@
+# .github/workflows/debug.yml
+name: Debug Build Output
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build
+        run: npm run build
+        
+      - name: Show build structure
+        run: |
+          echo "=== Complete dist structure ==="
+          find dist -type f | sort
+          echo "=== Top level dist ==="
+          ls -la dist/
+          echo "=== If dist/astro exists ==="
+          ls -la dist/astro/ 2>/dev/null || echo "No dist/astro folder"
