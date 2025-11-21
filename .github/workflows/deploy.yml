@@ -5,11 +5,14 @@ on:
   push:
     branches: ["main"]
 
-# Set permissions at the workflow level
 permissions:
-  contents: write  # This allows creating the gh-pages branch
+  contents: read
   pages: write
   id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
