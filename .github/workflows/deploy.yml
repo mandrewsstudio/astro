@@ -30,15 +30,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
-      - name: Build with base path
-        run: |
-          npm run build
-          echo "=== Verifying build output ==="
-          ls -la dist/
-          # When base is '/astro', check if files are in dist/astro/
-          if [ -d "dist/astro" ]; then
-            echo "Found dist/astro folder - updating artifact path"
-          fi
+      - name: Build
+        run: npm run build
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -46,12 +39,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Try different paths - the action will find the right one
-          path: |
-            ./dist
-            ./dist/astro
-          # If the above doesn't work, use this instead:
-          # path: ./dist
+          path: ./dist
 
   deploy:
     environment:
