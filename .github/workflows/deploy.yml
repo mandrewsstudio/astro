@@ -1,5 +1,5 @@
-# .github/workflows/deploy-fixed.yml
-name: Deploy to GitHub Pages with Base Path
+# .github/workflows/deploy.yml
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -9,6 +9,10 @@ permissions:
   contents: read
   pages: write
   id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -26,20 +30,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
-      - name: Build
-        run: npm run build
-        
-      - name: Fix build output for GitHub Pages
+      - name: Build with base path
         run: |
-          # When base is '/astro', Astro might put files in dist/astro/
-          # But GitHub Pages expects them at dist/
-          if [ -d "dist/astro" ]; then
-            echo "Moving files from dist/astro to dist"
-            mv dist/astro/* dist/
-            rm -rf dist/astro
-          fi
-          echo "Final dist structure:"
+          npm run build
+          echo "=== Verifying build output ==="
           ls -la dist/
+          # When base is '/astro', check if files are in dist/astro/
+          if [ -d "dist/astro" ]; then
+            echo "Found dist/astro folder - updating artifact path"
+          fi
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -47,7 +46,12 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          # Try different paths - the action will find the right one
+          path: |
+            ./dist
+            ./dist/astro
+          # If the above doesn't work, use this instead:
+          # path: ./dist
 
   deploy:
     environment:
