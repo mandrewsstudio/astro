@@ -9,6 +9,6 @@ export default defineConfig({
   base: '/astro/',
   build: {
     format: 'directory'
-}
+},
  integrations: [mdx()],
 });
