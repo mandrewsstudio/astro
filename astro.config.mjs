@@ -5,8 +5,9 @@ import mdx from '@astrojs/mdx';
 export default defineConfig({
  
    site: 'https://mandrewsstudio.github.io',
+  base: '/astro', // This MUST match your repository name
   output: 'static',
-  base: '/astro/',
+  trailingSlash: 'always',
   build: {
     format: 'directory'
 },
