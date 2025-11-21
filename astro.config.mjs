@@ -7,7 +7,9 @@ export default defineConfig({
   site: 'https://mandrewsstudio.github.io',
   base: '/astro',
   output: 'static',
-  trailingSlash: 'ignore',
+  build: {
+    assetsPrefix: '/astro',
+  },
   build: {
     format: 'directory'
 },
