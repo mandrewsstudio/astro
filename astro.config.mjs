@@ -5,7 +5,7 @@ import mdx from '@astrojs/mdx';
 // Minimal config - let Astro handle paths automatically
 export default defineConfig({
   site: 'https://mandrewsstudio.github.io',
-  // Remove base entirely for now to test
+base: '/astro',
   output: 'static',
   build: {
     format: 'directory'
