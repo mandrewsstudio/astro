@@ -150,7 +150,44 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		
+		"ourkidsclimate": {
+"Section1.md": {
+	id: "Section1.md";
+  slug: "section1";
+  body: string;
+  collection: "ourkidsclimate";
+  data: any
+} & { render(): Render[".md"] };
+"Section2.md": {
+	id: "Section2.md";
+  slug: "section2";
+  body: string;
+  collection: "ourkidsclimate";
+  data: any
+} & { render(): Render[".md"] };
+"Section3.md": {
+	id: "Section3.md";
+  slug: "section3";
+  body: string;
+  collection: "ourkidsclimate";
+  data: any
+} & { render(): Render[".md"] };
+"Section4.md": {
+	id: "Section4.md";
+  slug: "section4";
+  body: string;
+  collection: "ourkidsclimate";
+  data: any
+} & { render(): Render[".md"] };
+"Section5.md": {
+	id: "Section5.md";
+  slug: "section5";
+  body: string;
+  collection: "ourkidsclimate";
+  data: any
+} & { render(): Render[".md"] };
+};
+
 	};
 
 	type DataEntryMap = {
