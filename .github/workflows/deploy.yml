@@ -6,6 +6,12 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+# Add permissions at the workflow level (not job level)
+permissions:
+  contents: read
+  pages: write
+  id-token: write  # This is the key fix!
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,25 +25,12 @@ jobs:
           node-version: '18'
           cache: 'npm'
           
-      - name: Debug - Show directory structure
-        run: ls -la
-          
       - name: Install dependencies
-        run: |
-          npm ci
-          npm list --depth=0
-          
-      - name: Build with debug info
-        run: |
-          echo "Current directory: $(pwd)"
-          echo "Node version: $(node --version)"
-          echo "NPM version: $(npm --version)"
-          npm run build --verbose
-          
-      - name: Check build output
-        run: |
-          ls -la dist/ || echo "No dist folder found"
-          
+        run: npm ci
+        
+      - name: Build
+        run: npm run build
+        
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
