@@ -8,8 +8,13 @@ content:
     type: collection
     path: src/content/home
     view:
-      fields: [file, title, body]
+      fields: [slug, title, body]   # slug first → sorts by filename
     fields:
+      - name: slug
+        label: Filename
+        type: string
+        computed: "{{ filename }}"   # automatically takes filename
+        hidden: true                 # hidden in the editor UI
       - name: title
         label: Title
         type: string
@@ -22,8 +27,13 @@ content:
     type: collection
     path: src/content/about
     view:
-      fields: [title,body]
+      fields: [slug, title, body]
     fields:
+      - name: slug
+        label: Filename
+        type: string
+        computed: "{{ filename }}"
+        hidden: true
       - name: title
         label: Title
         type: string
@@ -36,8 +46,13 @@ content:
     type: collection
     path: src/content/ourkidsclimate
     view:
-      fields: [title,body]
+      fields: [slug, title, body]
     fields:
+      - name: slug
+        label: Filename
+        type: string
+        computed: "{{ filename }}"
+        hidden: true
       - name: title
         label: Title
         type: string
