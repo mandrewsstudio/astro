@@ -5,20 +5,24 @@ import WorkPara from "../../components/WorkPara.astro";
 import WorkItemWide from "../../components/WorkItemWide.astro";
 import WorkGrid from "../../components/WorkGrid.astro";
 import WorkItem from "../../components/WorkItem.astro";
+import { getEntryBySlug } from "astro:content";
+
+// Load markdown sections
+const section1 = await getEntryBySlug("deartomorrow", "section1");
+const section2 = await getEntryBySlug("deartomorrow", "section2");
+const section3 = await getEntryBySlug("deartomorrow", "section3");
+const section4 = await getEntryBySlug("deartomorrow", "section4");
+
+// Prepare compiled HTML for each section
+const { Content: Section1Content } = await section1.render();
+const { Content: Section2Content } = await section2.render();
+const { Content: Section3Content } = await section3.render();
+const { Content: Section4Content } = await section4.render();
 ---
 
 <WorkLayout title="DearTomorrow">
-    <WorkPara title="Write today, change tomorrow.">
-    <p class="case-intro">
-      DearTomorrow helps people engage with the climate crisis on an emotional level, with poetry and
-                        heart. Backed by cutting edge behavioural research, DearTomorrow has an outsized influence on
-                        the field of communication and climate change.
-                    </p>
-    <p class="case-intro">
-                        Their new identity closely reflects how they’ve grown in confidence as an organisation, creating
-                        a whole new look and feel around the tentative potential at its core: Write today, change
-                        tomorrow.
-    </p>
+    <WorkPara title={section1.data.title}>
+    <Section1Content />
   </WorkPara>
 
   <WorkItemWide
@@ -38,17 +42,8 @@ import WorkItem from "../../components/WorkItem.astro";
     />
   </WorkGrid>
 
-  <WorkPara subtitle="Write the future">
-    <p>
-     DearTomorrow helps people understand and process their relationship to Climate Change, its
-                        causes and its consequences. They've found that the simple act of writing a letter enables
-                        people to confront their thoughts and feelings about the future and take lasting action to
-                        protect it.
-                    </p>
-                    <p>
-                        An organisation rooted in love, connection and courage, and backed by rigourous behavioural
-                        science, DearTomorrow's brand has to exude empathy while empowering participants.
-                    </p>
+  <WorkPara subtitle={section2.data.title}>
+    <Section2Content />
   </WorkPara>
 
   <WorkItemWide
@@ -85,17 +80,8 @@ import WorkItem from "../../components/WorkItem.astro";
    </WorkGrid>
 
 
-  <WorkPara subtitle="The dawning light">
-<p>
-                        At the core of the DearTomorrow brand is a palette of gradients derived from photos of sunrise,
-                        evoking a time of day — calm, magical, energising — that perfectly fits the atmosphere they
-                        create.
-                    </p>
-                    <p>
-                        The main brand font, Louize by 205tf, has just the right amount of literary gravitas and
-                        personality. A supporting library of hand-drawn illustrations helps emphasise the human connection
-                        and intimacy of the project.
-                    </p>
+  <WorkPara subtitle={section3.data.title}>
+    <Section3Content />
   </WorkPara>
 
   <WorkItemWide
@@ -124,22 +110,8 @@ import WorkItem from "../../components/WorkItem.astro";
 
   
 
-  <WorkPara subtitle="Confidence and connection">
-    <p>
-                        An important aspect of the rebrand was defining how DearTomorrow use words. Establishing a
-                        clear, inviting, poetic and sincere tone of voice has meant they can use a consistent tone
-                        whether communicating on Instagram, in person or on a funding application.
-                    </p>
-                    <p>
-                        The brand has enabled DearTomorrow to properly convey the power and gravity of their work, and
-                        of their participants' contributions. It's also enabled them to communicate more clearly both to
-                        the public and to their funders.
-                    </p>
-                    <p>
-                        "We've seen a noticeable uplift across our digital channels, and more meaningful connections
-                        with funders and collaborators to our refreshed identity and clearer messaging"<br />— Sandra
-                        Freij, Creative Lead, DearTomorrow
-                    </p>
+  <WorkPara subtitle={section4.data.title}>
+    <Section4Content />
   </WorkPara>
 
   <WorkGrid columns={2}>
