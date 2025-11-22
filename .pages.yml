@@ -4,7 +4,7 @@ media:
 
 content:
   - name: home
-    label: "1-Homepage"
+    label: "Homepage"
     type: collection
     path: src/content/home
     fields:
@@ -15,7 +15,7 @@ content:
         label: Content
         type: rich-text
   - name: about
-    label: "2-Studio"
+    label: "Studio"
     type: collection
     path: src/content/about
     fields:
