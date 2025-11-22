@@ -5,20 +5,24 @@ import WorkPara from "../../components/WorkPara.astro";
 import WorkItemWide from "../../components/WorkItemWide.astro";
 import WorkGrid from "../../components/WorkGrid.astro";
 import WorkItem from "../../components/WorkItem.astro";
+import { getEntryBySlug } from "astro:content";
+
+// Load markdown sections
+const section1 = await getEntryBySlug("electrify", "section1");
+const section2 = await getEntryBySlug("electrify", "section2");
+const section3 = await getEntryBySlug("electrify", "section3");
+
+
+// Prepare compiled HTML for each section
+const { Content: Section1Content } = await section1.render();
+const { Content: Section2Content } = await section2.render();
+const { Content: Section3Content } = await section3.render();
+
 ---
 
 <WorkLayout title="Electrify London">
-  <WorkPara title="Lead the Charge">
-    <p class="case-intro">
-      Our Kids' Climate is a global family of parent-led groups working to
-      protect children from climate breakdown.
-    </p>
-    <p class="case-intro">
-      Their new brand positions Our Kids' Climate as a broad movement that
-      welcomes parents, families and communities from across the world, and
-      allows them to more effectively champion their member leaders and amplify
-      their influence on lawmakers and government institutions.
-    </p>
+  <WorkPara title={section1.data.title}>
+   <Section1Content />
   </WorkPara>
 
   <WorkItemWide
@@ -38,11 +42,8 @@ import WorkItem from "../../components/WorkItem.astro";
     />
   </WorkGrid>
 
-  <WorkPara subtitle="Care, Louder">
-    <p>
-      Through our workshops with the OKC team, we discovered an essential
-      tension at the heart of the brand that needs to be communicated.
-    </p>
+  <WorkPara subtitle={section2.data.title}>
+    <Section2Content />
   </WorkPara>
 
   <WorkItemWide
@@ -68,11 +69,8 @@ import WorkItem from "../../components/WorkItem.astro";
     />
   </WorkGrid>
 
-  <WorkPara subtitle="The Logo">
-    <p>
-      We're particularly proud of this one. A logo that illustrates what's at
-      the heart of the organisation: our kids.
-    </p>
+  <WorkPara subtitle={section3.data.title}>
+    <Section3Content />
   </WorkPara>
 
   <WorkItemWide
