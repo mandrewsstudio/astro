@@ -295,6 +295,15 @@ declare module 'astro:content' {
   data: any
 } & { render(): Render[".md"] };
 };
+"globalalliance": {
+"Section1.md": {
+	id: "Section1.md";
+  slug: "section1";
+  body: string;
+  collection: "globalalliance";
+  data: any
+} & { render(): Render[".md"] };
+};
 "home": {
 "Section1.md": {
 	id: "Section1.md";

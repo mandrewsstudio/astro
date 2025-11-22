@@ -5,19 +5,23 @@ import WorkPara from "../../components/WorkPara.astro";
 import WorkItemWide from "../../components/WorkItemWide.astro";
 import WorkGrid from "../../components/WorkGrid.astro";
 import WorkItem from "../../components/WorkItem.astro";
+
+import { getEntryBySlug } from "astro:content";
+
+// Load markdown sections
+const section1 = await getEntryBySlug("globalalliance", "section1");
+
+
+
+// Prepare compiled HTML for each section
+const { Content: Section1Content } = await section1.render();
+
+
 ---
 
 <WorkLayout title="Global Alliance for a Green New Deal">
-  <WorkPara title="We can all flourish.">
-    <p class="case-intro">
-      The Global Alliance for a Green New Deal is an international group of lawmakers creating a
-      wave of positivity and political action. This forms the basis of the logo, and rolls out to
-      all other communications.
-    </p>
-    <p class="case-intro">
-      The movement is optimistic, encouraging and professional, with a bright, bold and confident
-      identity.
-    </p>
+  <WorkPara title={section1.data.title}>
+    <Section1Content />
   </WorkPara>
 
   <WorkItemWide
