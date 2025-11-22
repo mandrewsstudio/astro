@@ -7,6 +7,12 @@ content:
     label: "Homepage"
     type: collection
     path: src/content/home
+    view:
+      fields: [ name, title, body ] 
+      sort: [ name, title, body ]
+      default:
+          sort: name
+          order: desc
     fields:
       - name: title
         label: Title
@@ -18,6 +24,12 @@ content:
     label: "Studio"
     type: collection
     path: src/content/about
+    view:
+      fields: [ name, title, body ] 
+      sort: [ name, title, body ]
+      default:
+          sort: name
+          order: desc
     fields:
       - name: title
         label: Title
@@ -29,6 +41,12 @@ content:
     label: "Our Kids' Climate"
     type: collection
     path: src/content/ourkidsclimate
+    view:
+      fields: [ name, title, body ] 
+      sort: [ name, title, body ]
+      default:
+          sort: name
+          order: desc
     fields:
       - name: title
         label: Title
