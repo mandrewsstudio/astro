@@ -22,7 +22,7 @@ content:
     type: collection
     path: src/content/about
     view:
-      fields: [title]
+      fields: [title,body]
     fields:
       - name: title
         label: Title
@@ -36,7 +36,7 @@ content:
     type: collection
     path: src/content/ourkidsclimate
     view:
-      fields: [title]
+      fields: [title,body]
     fields:
       - name: title
         label: Title
