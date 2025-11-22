@@ -71,7 +71,23 @@ content:
       - name: body
         label: Content
         type: rich-text
-
+  - name: purposedisruptors
+    label: "Purpose Disruptors"
+    type: collection
+    path: src/content/purposedisruptors
+    view:
+      fields: [ name, title, body ] 
+      sort: [ name, title, body ]
+      default:
+          sort: name
+          order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: body
+        label: Content
+        type: rich-text
   - name: electrify
     label: "Electrify London"
     type: collection
