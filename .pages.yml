@@ -8,8 +8,8 @@ content:
     type: collection
     path: src/content/home
     view:
-      fields: [ name, title, content ] 
-      sort: [ name, title, content ]
+      fields: [ name, title, body ] 
+      sort: [ name, title, body ]
       default:
           sort: name
           order: desc
