@@ -8,11 +8,11 @@ content:
     type: collection
     path: src/content/home
     view:
-      fields: [ name, title, body ] 
-      sort: [ name, title, body ]
+      fields: [name, title, body]
+      sort: [name, title, body]
       default:
-          sort: name
-          order: desc
+        sort: name
+        order: desc
     fields:
       - name: title
         label: Title
@@ -25,11 +25,11 @@ content:
     type: collection
     path: src/content/about
     view:
-      fields: [ name, title, body ] 
-      sort: [ name, title, body ]
+      fields: [name, title, body]
+      sort: [name, title, body]
       default:
-          sort: name
-          order: desc
+        sort: name
+        order: desc
     fields:
       - name: title
         label: Title
@@ -42,11 +42,11 @@ content:
     type: collection
     path: src/content/ourkidsclimate
     view:
-      fields: [ name, title, body ] 
-      sort: [ name, title, body ]
+      fields: [name, title, body]
+      sort: [name, title, body]
       default:
-          sort: name
-          order: desc
+        sort: name
+        order: desc
     fields:
       - name: title
         label: Title
@@ -59,11 +59,11 @@ content:
     type: collection
     path: src/content/deartomorrow
     view:
-      fields: [ name, title, body ] 
-      sort: [ name, title, body ]
+      fields: [name, title, body]
+      sort: [name, title, body]
       default:
-          sort: name
-          order: desc
+        sort: name
+        order: desc
     fields:
       - name: title
         label: Title
@@ -76,11 +76,11 @@ content:
     type: collection
     path: src/content/purposedisruptors
     view:
-      fields: [ name, title, body ] 
-      sort: [ name, title, body ]
+      fields: [name, title, body]
+      sort: [name, title, body]
       default:
-          sort: name
-          order: desc
+        sort: name
+        order: desc
     fields:
       - name: title
         label: Title
@@ -93,11 +93,11 @@ content:
     type: collection
     path: src/content/electrify
     view:
-      fields: [ name, title, body ] 
-      sort: [ name, title, body ]
+      fields: [name, title, body]
+      sort: [name, title, body]
       default:
-          sort: name
-          order: desc
+        sort: name
+        order: desc
     fields:
       - name: title
         label: Title
@@ -110,11 +110,11 @@ content:
     type: collection
     path: src/content/carspreading
     view:
-      fields: [ name, title, body ] 
-      sort: [ name, title, body ]
+      fields: [name, title, body]
+      sort: [name, title, body]
       default:
-          sort: name
-          order: desc
+        sort: name
+        order: desc
     fields:
       - name: title
         label: Title
@@ -127,11 +127,11 @@ content:
     type: collection
     path: src/content/agencyfornature
     view:
-      fields: [ name, title, body ] 
-      sort: [ name, title, body ]
+      fields: [name, title, body]
+      sort: [name, title, body]
       default:
-          sort: name
-          order: desc
+        sort: name
+        order: desc
     fields:
       - name: title
         label: Title
@@ -144,11 +144,11 @@ content:
     type: collection
     path: src/content/cargorevolution
     view:
-      fields: [ name, title, body ] 
-      sort: [ name, title, body ]
+      fields: [name, title, body]
+      sort: [name, title, body]
       default:
-          sort: name
-          order: desc
+        sort: name
+        order: desc
     fields:
       - name: title
         label: Title
@@ -161,11 +161,28 @@ content:
     type: collection
     path: src/content/parentsforfuture
     view:
-      fields: [ name, title, body ] 
-      sort: [ name, title, body ]
+      fields: [name, title, body]
+      sort: [name, title, body]
       default:
-          sort: name
-          order: desc
+        sort: name
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: body
+        label: Content
+        type: rich-text
+  - name: globalalliance
+    label: "Global Alliance for a Green New Deal"
+    type: collection
+    path: src/content/globalalliance
+    view:
+      fields: [name, title, body]
+      sort: [name, title, body]
+      default:
+        sort: name
+        order: desc
     fields:
       - name: title
         label: Title
