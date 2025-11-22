@@ -1,4 +1,4 @@
-media:
+  media:
   input: src/assets/images
   output: /images
 
@@ -7,20 +7,20 @@ content:
     label: "Homepage"
     type: collection
     path: src/content/home
-    view:
-      fields: [ slug, title ]
-      sort: [ slug ]
-      default:
-        sort: slug
-        order: asc
+    sort:
+      by: slug
+      order: asc
     fields:
       - name: slug
         label: Filename
         type: string
         computed: "{{ filename }}"
+        hidden: true
+
       - name: title
         label: Title
         type: string
+
       - name: body
         label: Content
         type: rich-text
@@ -29,20 +29,20 @@ content:
     label: "Studio"
     type: collection
     path: src/content/about
-    view:
-      fields: [ slug, title ]
-      sort: [ slug ]
-      default:
-        sort: slug
-        order: asc
+    sort:
+      by: slug
+      order: asc
     fields:
       - name: slug
         label: Filename
         type: string
         computed: "{{ filename }}"
+        hidden: true
+
       - name: title
         label: Title
         type: string
+
       - name: body
         label: Content
         type: rich-text
@@ -51,20 +51,20 @@ content:
     label: "Our Kids' Climate"
     type: collection
     path: src/content/ourkidsclimate
-    view:
-      fields: [ slug, title ]
-      sort: [ slug ]
-      default:
-        sort: slug
-        order: asc
+    sort:
+      by: slug
+      order: asc
     fields:
       - name: slug
         label: Filename
         type: string
         computed: "{{ filename }}"
+        hidden: true
+
       - name: title
         label: Title
         type: string
+
       - name: body
         label: Content
         type: rich-text
