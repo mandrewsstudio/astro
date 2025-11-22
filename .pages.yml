@@ -8,7 +8,7 @@ content:
     type: collection
     path: src/content/home
     view:
-      fields: [title]
+      fields: [title][body]
     fields:
       - name: title
         label: Title
