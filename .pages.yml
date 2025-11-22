@@ -15,7 +15,7 @@ content:
         label: Content
         type: rich-text
   - name: about
-    label: "1-Studio"
+    label: "2-Studio"
     type: collection
     path: src/content/about
     fields:
