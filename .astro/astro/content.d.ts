@@ -314,6 +314,29 @@ declare module 'astro:content' {
   data: any
 } & { render(): Render[".md"] };
 };
+"purposedisruptors": {
+"Section1.md": {
+	id: "Section1.md";
+  slug: "section1";
+  body: string;
+  collection: "purposedisruptors";
+  data: any
+} & { render(): Render[".md"] };
+"Section2.md": {
+	id: "Section2.md";
+  slug: "section2";
+  body: string;
+  collection: "purposedisruptors";
+  data: any
+} & { render(): Render[".md"] };
+"Section3.md": {
+	id: "Section3.md";
+  slug: "section3";
+  body: string;
+  collection: "purposedisruptors";
+  data: any
+} & { render(): Render[".md"] };
+};
 
 	};
 

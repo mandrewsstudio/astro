@@ -5,19 +5,25 @@ import WorkPara from "../../components/WorkPara.astro";
 import WorkItemWide from "../../components/WorkItemWide.astro";
 import WorkGrid from "../../components/WorkGrid.astro";
 import WorkItem from "../../components/WorkItem.astro";
+import { getEntryBySlug } from "astro:content";
+
+// Load markdown sections
+const section1 = await getEntryBySlug("electrify", "section1");
+const section2 = await getEntryBySlug("electrify", "section2");
+const section3 = await getEntryBySlug("electrify", "section3");
+
+
+// Prepare compiled HTML for each section
+const { Content: Section1Content } = await section1.render();
+const { Content: Section2Content } = await section2.render();
+const { Content: Section3Content } = await section3.render();
+
+---
 ---
 
 <WorkLayout title="Purpose Disruptors">
-  <WorkPara title="This way to the future">
-    <p class="case-intro">
-      Purpose Disruptors are pioneers of the advertising sector, working with agencies to accelerate
-      their climate transition, and holding the industry to account on its emissions.
-    </p>
-    <p class="case-intro">
-      Their new identity reflects their influential position in the industry, allowing them to
-      communicate to their audience of creative directors and CEOs with a confidence that matches
-      their impact.
-    </p>
+  <WorkPara title={section1.data.title}>
+    <Section1Content />
   </WorkPara>
 
   <WorkItemWide
@@ -45,13 +51,8 @@ import WorkItem from "../../components/WorkItem.astro";
     alt="Purpose Disruptors project"
   />
 
-  <WorkPara subtitle="Lighting the way">
-    <p>
-      Purpose Disruptors act as a guide and a pathfinder for the advertising industry, showing
-      agencies the way towards a sustainable future. The logo symbol — two shapes representing "PD" —
-      can be broken up, repeated, shuffled and cropped in to as a spotlight device, both shining a
-      light and rearranging the landscape in their movement and dynamism.
-    </p>
+  <WorkPara subtitle={section2.data.title}>
+    <Section2Content />
   </WorkPara>
 
   <WorkItemWide
@@ -84,17 +85,8 @@ import WorkItem from "../../components/WorkItem.astro";
     alt="Purpose Disruptors montages"
   />
 
-  <WorkPara subtitle="Authoritative and Inspiring">
-    <p>
-      At its core, the brand allows Purpose Disruptors to lay out the facts in simple
-      black-and-white, with an emphasis on clarity. But it can also be expressive and imaginative.
-      Rather than a wide-ranging colour-palette, we created these vivid background images, derived
-      from macro shots of nature, amped up and accelerated into hyperreality.
-    </p>
-    <p>
-      These trippy images can be used to bring colour and vibrancy to layouts, and they tie back to 
-      the connection to nature which is so key to Purpose Disruptors' approach.
-    </p>
+  <WorkPara subtitle={section3.data.title}>
+    <Section3Content />
   </WorkPara>
 
   <WorkGrid columns={2}>
