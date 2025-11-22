@@ -5,19 +5,22 @@ import WorkPara from "../../components/WorkPara.astro";
 import WorkItemWide from "../../components/WorkItemWide.astro";
 import WorkGrid from "../../components/WorkGrid.astro";
 import WorkItem from "../../components/WorkItem.astro";
+import { getEntryBySlug } from "astro:content";
+
+// Load markdown sections
+const section1 = await getEntryBySlug("parentsforfuture", "section1");
+
+
+
+// Prepare compiled HTML for each section
+const { Content: Section1Content } = await section1.render();
+
+
 ---
 
 <WorkLayout title="Parents for Future UK">
-  <WorkPara title="A growing movement of grown-ups.">
-    <p class="case-intro">
-      Parents for Future is for all parents, not just activists.
-    </p>
-    <p class="case-intro">
-      Their brand is an invitation to other parents to join the movement, and a message to those
-      in power. Bold typography and a broad colour palette creates unexpected combinations,
-      helping PFF communicate a spectrum of emotions from sober and urgent to joyful and
-      celebratory.
-    </p>
+  <WorkPara title={section1.data.title}>
+    <Section1Content />
   </WorkPara>
 
   <WorkItemWide

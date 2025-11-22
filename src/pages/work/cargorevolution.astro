@@ -5,18 +5,22 @@ import WorkPara from "../../components/WorkPara.astro";
 import WorkItemWide from "../../components/WorkItemWide.astro";
 import WorkGrid from "../../components/WorkGrid.astro";
 import WorkItem from "../../components/WorkItem.astro";
+import { getEntryBySlug } from "astro:content";
+
+// Load markdown sections
+const section1 = await getEntryBySlug("cargorevolution", "section1");
+
+
+
+// Prepare compiled HTML for each section
+const { Content: Section1Content } = await section1.render();
+
+
 ---
 
 <WorkLayout title="Cargo Revolution">
-  <WorkPara title="A revolution on wheels.">
-    <p class="case-intro">
-      The Cargo Revolution is a rallying cry for urban businesses to switch to zero carbon
-      deliveries.
-    </p>
-    <p class="case-intro">
-      A great opportunity to create an identity that allows everyone—from councils to businesses
-      to riders—to celebrate the passion, energy and real progress made by this community.
-    </p>
+  <WorkPara title= {section1.data.title}>
+    <Section1Content />
   </WorkPara>
 
   <WorkItemWide

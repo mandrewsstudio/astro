@@ -139,3 +139,37 @@ content:
       - name: body
         label: Content
         type: rich-text
+  - name: cargorevolution
+    label: "Cargo Revolution"
+    type: collection
+    path: src/content/cargorevolution
+    view:
+      fields: [ name, title, body ] 
+      sort: [ name, title, body ]
+      default:
+          sort: name
+          order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: body
+        label: Content
+        type: rich-text
+  - name: parentsforfuture
+    label: "Parents for Future"
+    type: collection
+    path: src/content/parentsforfuture
+    view:
+      fields: [ name, title, body ] 
+      sort: [ name, title, body ]
+      default:
+          sort: name
+          order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: body
+        label: Content
+        type: rich-text

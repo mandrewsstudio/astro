@@ -210,6 +210,15 @@ declare module 'astro:content' {
   data: any
 } & { render(): Render[".md"] };
 };
+"cargorevolution": {
+"Section1.md": {
+	id: "Section1.md";
+  slug: "section1";
+  body: string;
+  collection: "cargorevolution";
+  data: any
+} & { render(): Render[".md"] };
+};
 "carspreading": {
 "Section1.md": {
 	id: "Section1.md";
@@ -343,6 +352,15 @@ declare module 'astro:content' {
   slug: "section5";
   body: string;
   collection: "ourkidsclimate";
+  data: any
+} & { render(): Render[".md"] };
+};
+"parentsforfuture": {
+"Section1.md": {
+	id: "Section1.md";
+  slug: "section1";
+  body: string;
+  collection: "parentsforfuture";
   data: any
 } & { render(): Render[".md"] };
 };
