@@ -7,52 +7,40 @@ content:
     label: "Homepage"
     type: collection
     path: src/content/home
-    sort:
-      field: slug
-      order: asc
+    view:
+      fields: [title]
     fields:
-      - name: slug
-        type: string
-        computed: "{{ filename }}"
-        hidden: true
-
       - name: title
+        label: Title
         type: string
       - name: body
+        label: Content
         type: rich-text
 
   - name: about
     label: "Studio"
     type: collection
     path: src/content/about
-    sort:
-      field: slug
-      order: asc
+    view:
+      fields: [title]
     fields:
-      - name: slug
-        type: string
-        computed: "{{ filename }}"
-        hidden: true
-
       - name: title
+        label: Title
         type: string
       - name: body
+        label: Content
         type: rich-text
 
   - name: ourkidsclimate
     label: "Our Kids' Climate"
     type: collection
     path: src/content/ourkidsclimate
-    sort:
-      field: slug
-      order: asc
+    view:
+      fields: [title]
     fields:
-      - name: slug
-        type: string
-        computed: "{{ filename }}"
-        hidden: true
-
       - name: title
+        label: Title
         type: string
       - name: body
+        label: Content
         type: rich-text
