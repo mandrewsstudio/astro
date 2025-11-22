@@ -1,77 +1,106 @@
-
 ---
-// src/pages/global-alliance-green-new-deal.astro
+// src/pages/work/carspreading.astro
 import WorkLayout from "../../layouts/WorkLayout.astro";
 import WorkPara from "../../components/WorkPara.astro";
 import WorkItemWide from "../../components/WorkItemWide.astro";
 import WorkGrid from "../../components/WorkGrid.astro";
 import WorkItem from "../../components/WorkItem.astro";
+import { getEntryBySlug } from "astro:content";
+
+// Load markdown sections
+const section1 = await getEntryBySlug("carspreading", "section1");
+const section2 = await getEntryBySlug("carspreading", "section2");
+const section3 = await getEntryBySlug("carspreading", "section3");
+
+
+// Prepare compiled HTML for each section
+const { Content: Section1Content } = await section1.render();
+const { Content: Section2Content } = await section2.render();
+const { Content: Section3Content } = await section3.render();
+
 ---
 
-<WorkLayout title="Global Alliance for a Green New Deal">
-  <WorkPara title="We can all flourish.">
-    <p class="case-intro">
-      The Global Alliance for a Green New Deal is an international group of lawmakers creating a
-      wave of positivity and political action. This forms the basis of the logo, and rolls out to
-      all other communications.
-    </p>
-    <p class="case-intro">
-      The movement is optimistic, encouraging and professional, with a bright, bold and confident
-      identity.
-    </p>
+<WorkLayout title="Carspreading">
+  <WorkPara title={section1.data.title}>
+    <Section1Content />
+  </WorkPara>
+
+  <WorkItemWide
+    type="video"
+    src="/images/carspreading/Carspreading-intro.mp4"
+  />
+
+  <WorkItemWide
+    type="image"
+    src="/images/carspreading/Carspreading-Billboards.webp"
+    alt="Carspreading billboards"
+  />
+
+  <WorkGrid columns={2}>
+    <WorkItem
+      type="image"
+      src="/images/carspreading/Carspreading-Edinburgh-1.avif"
+      alt="Carspreading Edinburgh"
+    />
+    <WorkItem
+      type="image"
+      src="/images/carspreading/Carspreading-Cardiff-posters.avif"
+      alt="Carspreading Cardiff posters"
+    />
+  </WorkGrid>
+
+  <WorkPara subtitle={section2.data.title}>
+    <Section2Content />
   </WorkPara>
 
   <WorkItemWide
     type="image"
-    src="/images/gagnd/GAGND-1.avif"
-    alt="Global Alliance project"
+    src="/images/carspreading/Carspreading-Inspo.avif"
+    alt="Carspreading inspiration"
+  />
+
+  <WorkItemWide
+    type="image"
+    src="/images/carspreading/Carspreading-icons-16-9(1).avif"
+    alt="Carspreading icons"
+  />
+
+  <WorkItemWide
+    type="image"
+    src="/images/carspreading/Carspreading-BW.avif"
+    alt="Carspreading black and white"
   />
 
   <WorkGrid columns={2}>
     <WorkItem
       type="image"
-      src="/images/gagnd/GAGND-2.avif"
-      alt="Global Alliance project"
+      src="/images/carspreading/cs-example-1.avif"
+      alt="Carspreading example"
     />
     <WorkItem
       type="image"
-      src="/images/gagnd/GAGND-3.avif"
-      alt="Global Alliance project"
+      src="/images/carspreading/CS-Example-2.avif"
+      alt="Carspreading example"
+    />
+    <WorkItem
+      type="image"
+      src="/images/carspreading/cs-example-3.avif"
+      alt="Carspreading example"
+    />
+    <WorkItem
+      type="image"
+      src="/images/carspreading/cs-example-4.avif"
+      alt="Carspreading example"
     />
   </WorkGrid>
 
-  <WorkItemWide
-    type="image"
-    src="/images/gagnd/GAGND-4.avif"
-    alt="Global Alliance project"
-  />
-
-  <WorkGrid columns={2}>
-    <WorkItem
-      type="image"
-      src="/images/gagnd/GAGND-6.avif"
-      alt="Global Alliance project"
-    />
-    <WorkItem
-      type="image"
-      src="/images/gagnd/GAGND-7.avif"
-      alt="Global Alliance project"
-    />
-    <WorkItem
-      type="image"
-      src="/images/gagnd/GAGND-8.avif"
-      alt="Global Alliance project"
-    />
-    <WorkItem
-      type="image"
-      src="/images/gagnd/GAGND-9.avif"
-      alt="Global Alliance project"
-    />
-  </WorkGrid>
+  <WorkPara subtitle={section3.data.title}>
+    <Section3Content />
+  </WorkPara>
 
   <WorkItemWide
     type="image"
-    src="/images/gagnd/GAGND-10.avif"
-    alt="Global Alliance project"
+    src="/images/carspreading/Carspreading-Edinburgh-2.avif"
+    alt="Carspreading Edinburgh campaign"
   />
 </WorkLayout>

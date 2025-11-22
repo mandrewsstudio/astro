@@ -105,3 +105,37 @@ content:
       - name: body
         label: Content
         type: rich-text
+  - name: carspreading
+    label: "Carspreading"
+    type: collection
+    path: src/content/carspreading
+    view:
+      fields: [ name, title, body ] 
+      sort: [ name, title, body ]
+      default:
+          sort: name
+          order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: body
+        label: Content
+        type: rich-text
+  - name: agencyfornature
+    label: "Agency for Nature"
+    type: collection
+    path: src/content/agencyfornature
+    view:
+      fields: [ name, title, body ] 
+      sort: [ name, title, body ]
+      default:
+          sort: name
+          order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: body
+        label: Content
+        type: rich-text
