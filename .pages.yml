@@ -8,16 +8,18 @@ content:
     type: collection
     path: src/content/home
     view:
-      fields: [slug, title, body]   # slug first → sorts by filename
+      fields: [slug, title, body]   # slug first → sort by filename
     fields:
       - name: slug
         label: Filename
         type: string
-        computed: "{{ filename }}"   # automatically takes filename
-        hidden: true                 # hidden in the editor UI
+        computed: "{{ filename }}"
+        hidden: true                 # hide from editor
+
       - name: title
         label: Title
         type: string
+
       - name: body
         label: Content
         type: rich-text
@@ -34,9 +36,11 @@ content:
         type: string
         computed: "{{ filename }}"
         hidden: true
+
       - name: title
         label: Title
         type: string
+
       - name: body
         label: Content
         type: rich-text
@@ -53,9 +57,11 @@ content:
         type: string
         computed: "{{ filename }}"
         hidden: true
+
       - name: title
         label: Title
         type: string
+
       - name: body
         label: Content
         type: rich-text
