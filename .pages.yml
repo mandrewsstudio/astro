@@ -1,6 +1,6 @@
 media:
   input: src/assets/images
-  output: /images
+  output: /_astro
 
 content:
   - name: home
