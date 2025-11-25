@@ -1,6 +1,6 @@
 ---
 title: What is a brand?
-date: 2024.04.04
+date: 2024-04-04
 ---
 Most people these days have at least a passing familiarity with the idea of a brand. A big part of how we consume culture is how we interact with brands, from social media accounts of multinational corporations, to much-loved smaller brands that connect on a personal or social level.
 
