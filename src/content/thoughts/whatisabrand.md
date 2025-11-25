@@ -10,7 +10,7 @@ As culture has become more mediated through digital platforms and advertising, t
 
 ![](/thoughts/images/1-Brand-Toolkit.jpg)
 
-And they wouldn't be wrong. These are, generally speaking, the main elements that come together to form the look and feel of a brand. But when we run our branding processes, we find it helps to zoom out a bit
+And they wouldn't be wrong. These are, generally speaking, the main elements that come together to form the look and feel of a brand. But when we run our branding processes, we find it helps to zoom out a bit.
 
 ![](/thoughts/images/2-Brand-Personality.jpg) 
 
