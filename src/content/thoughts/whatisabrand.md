@@ -1,5 +1,6 @@
 ---
 title: What is a brand?
+description: Embodying your story and personality to make an impact with your audience.
 featuredImage: /thoughts/images/5-Quote.jpg
 date: 2024-01-01
 ---
