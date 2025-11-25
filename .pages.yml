@@ -37,6 +37,23 @@ content:
       - name: body
         label: Content
         type: rich-text
+  - name: thoughts
+    label: "Thoughts"
+    type: collection
+    path: src/content/thoughts
+    view:
+      fields: [name, title, body]
+      sort: [name, title, body]
+      default:
+        sort: name
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: body
+        label: Content
+        type: rich-text
   - name: ourkidsclimate
     label: "Our Kids' Climate"
     type: collection
