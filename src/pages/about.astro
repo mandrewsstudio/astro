@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import WorkGrid from "../components/WorkGrid.astro";
+import WorkItem from "../components/WorkItem.astro";
+
+
 import { getEntryBySlug } from "astro:content";
 
 // Load markdown sections
@@ -8,8 +12,10 @@ const section2 = await getEntryBySlug("about", "section2");
 const section3 = await getEntryBySlug("about", "section3");
 const section4 = await getEntryBySlug("about", "section4");
 const section5 = await getEntryBySlug("about", "section5");
+const section6 = await getEntryBySlug("about", "section6");
 const section7 = await getEntryBySlug("about", "section7");
 const section8 = await getEntryBySlug("about", "section8");
+const section9 = await getEntryBySlug("about", "section9");
 
 
 
@@ -19,8 +25,10 @@ const { Content: Section2Content } = await section2.render();
 const { Content: Section3Content } = await section3.render();
 const { Content: Section4Content } = await section4.render();
 const { Content: Section5Content } = await section5.render();
+const { Content: Section6Content } = await section6.render();
 const { Content: Section7Content } = await section7.render();
 const { Content: Section8Content } = await section8.render();
+const { Content: Section9Content } = await section9.render();
 
 ---
 
@@ -63,7 +71,8 @@ const { Content: Section8Content } = await section8.render();
     </div>
   </section>
 
-  <div class="container">
+ 
+<div class="container">
     <div class="about-grid" style="padding-bottom: 2em">
       <div class="work-item" style="padding-right: 10%">
        <h3>{section5.data.title}</h3>
@@ -72,17 +81,48 @@ const { Content: Section8Content } = await section8.render();
         <Section5Content>
       </div>
     </div>
+
+<WorkGrid columns={6}>
+
+    <div class="work-item"> </div>
+    <div class="work-item"> </div>
+    <div class="work-item"> </div>
+    
+    <WorkItem type="image" src="/images/about/Lorna-Jones-In-Progress.avif" alt="Community" />
+<div class="work-item"> <Section6Content /></div>
+  </WorkGrid>
+
+ 
+
+
+  <WorkGrid columns={6}>
+    <div class="work-item"> </div> 
+    <div class="work-item"> </div> 
+    <div class="work-item"> </div> <div class="work-item"> </div> 
+    <div class="work-item"> <Section7Content /></div> 
+    <WorkItem type="image" src="/images/about/Mike-Andrews-In-Progress-portrait.avif" alt="Community" />
+
+  </WorkGrid>
+
+<WorkGrid columns={2}>  
+    <WorkItem type="image" src="/images/Studio.avif" alt="Community" />
+<div class="work-item">
+        <Section8Content />
+<Section9Content />
+      </div>
+
+
+</WorkGrid>
     <div class="work-item-wide" style="margin: 1em 0">
-      <!-- Studio image now at /images/Studio.avif after flattening -->
-      <img src="/images/Studio.avif" alt="Mike & Lorna" />
+  <img src="/images/Studio.avif" alt="Mike & Lorna" />
     </div>
     <div class="about-grid" style="padding: 1em 0">
       <div class="work-item">
-        <h3><Section7Content />
+        <h3><Section8Content />
 </h3>
       </div>
       <div class="work-item">
-        <h3><Section8Content />
+        <h3><Section9Content />
         </h3>
       </div>
     </div>

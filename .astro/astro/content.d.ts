@@ -186,6 +186,13 @@ declare module 'astro:content' {
   collection: "about";
   data: any
 } & { render(): Render[".md"] };
+"Section6.md": {
+	id: "Section6.md";
+  slug: "section6";
+  body: string;
+  collection: "about";
+  data: any
+} & { render(): Render[".md"] };
 "Section7.md": {
 	id: "Section7.md";
   slug: "section7";
@@ -196,6 +203,13 @@ declare module 'astro:content' {
 "Section8.md": {
 	id: "Section8.md";
   slug: "section8";
+  body: string;
+  collection: "about";
+  data: any
+} & { render(): Render[".md"] };
+"Section9.md": {
+	id: "Section9.md";
+  slug: "section9";
   body: string;
   collection: "about";
   data: any
@@ -393,6 +407,15 @@ declare module 'astro:content' {
   slug: "section3";
   body: string;
   collection: "purposedisruptors";
+  data: any
+} & { render(): Render[".md"] };
+};
+"thoughts": {
+"whatisabrand.md": {
+	id: "whatisabrand.md";
+  slug: "whatisabrand";
+  body: string;
+  collection: "thoughts";
   data: any
 } & { render(): Render[".md"] };
 };

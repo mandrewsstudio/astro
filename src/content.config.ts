@@ -4,6 +4,9 @@ const home = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    description: z.string(),
+    date: z.date(),
+    author: z.string().default('In Progress'),
     buttonText: z.string().optional(),
     buttonLink: z.string().optional(),
     video: z.string().optional(),
@@ -14,4 +17,5 @@ const home = defineCollection({
 export const collections = {
   home,
   ourkidsclimate, // keep your existing collection
+  thoughts,
 };

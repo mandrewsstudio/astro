@@ -1,0 +1,36 @@
+---
+// src/pages/thoughts/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('thoughts');
+const sortedPosts = posts.sort((a, b) => 
+  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<BaseLayout title="Thoughts">
+  <div class="container">
+    <div class="article">
+      <h1>In Progress / Thoughts</h1>
+      
+      {sortedPosts.map((post) => (
+        <article style="margin-bottom: 3rem;">
+          <h2>
+            <a href={`/thoughts/${post.slug}/`}>{post.data.title}</a>
+          </h2>
+          <p><em>{post.data.description}</em></p>
+          <p><small>Published {new Date(post.data.date).toLocaleDateString()}</small></p>
+        </article>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4.5rem 2rem 2rem 2rem;
+  }
+</style>

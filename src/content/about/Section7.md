@@ -1,4 +1,5 @@
 ---
-title: Bottom left
+title: Mike profile
 ---
-### If you’re an organisation looking for transformation, [drop an email to Lorna](%22mailto:lorna@inprogress.studio%22).
+Mike Andrews
+Creative Director

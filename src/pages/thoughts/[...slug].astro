@@ -1,0 +1,46 @@
+---
+// src/pages/thoughts/[...slug].astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('thoughts');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout title={`${post.data.title} - Thoughts`}>
+  <div class="container">
+    <div class="article">
+      <h1><a href="/">In Progress</a> / Thoughts</h1>
+      
+      <h2>{post.data.title}</h2>
+      <h3>{post.data.description}</h3>
+      
+      <!-- Your animated GIF -->
+      <img src="/images/Logo-Load-Tiny.gif" style="width: 25px; text-align: center; display: block; margin-left: auto; margin-right: auto" />
+      
+      <Content />
+      
+      <!-- Closing GIF -->
+      <img src="/images/Logo-Load-Tiny.gif" style="width: 25px; text-align: center; display: block; margin-left: auto; margin-right: auto; margin-top: 2rem" />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4.5rem 2rem 2rem 2rem;
+  }
+  .article h1 {
+    margin-bottom: 2rem;
+  }
+</style>
