@@ -1,4 +1,4 @@
 ---
-title: The Logo
+title: Section 3
 ---
-We're particularly proud of this one. A logo that illustrates what's at the heart of the organisation: our kids.
+Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
