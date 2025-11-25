@@ -1,12 +1,11 @@
 ---
 title: What is a brand?
-date: 2024-04-04
 ---
 Most people these days have at least a passing familiarity with the idea of a brand. A big part of how we consume culture is how we interact with brands, from social media accounts of multinational corporations, to much-loved smaller brands that connect on a personal or social level.
 
 As culture has become more mediated through digital platforms and advertising, the public has become more design literate, understanding that the way a piece of communication looks and sounds is formed by a series of decisions. So when we ask, 'what is a brand?' a lot of people would reasonably respond that a brand is a logo, a choice of fonts, a colour scheme and perhaps some graphic elements.
 
-![](/thoughts/images/Mike-Andrews-In-Progress-portrait.avif)
+![](/thoughts/images/1-Brand-Toolkit.jpg)
 
 And they wouldn't be wrong. These are, generally speaking, the main elements that come together to form the look and feel of a brand. But when we run our branding processes, we find it helps to zoom out a bit.
 
