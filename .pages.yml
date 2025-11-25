@@ -20,6 +20,7 @@ content:
       - name: body
         label: Content
         type: rich-text
+        
   - name: about
     label: "Studio"
     type: collection
@@ -37,6 +38,7 @@ content:
       - name: body
         label: Content
         type: rich-text
+        
   - name: thoughts
     label: "Thoughts"
     type: collection
@@ -51,13 +53,17 @@ content:
       - name: title
         label: Title
         type: string
-      - name: date
-        label: Publish Date
-        type: datetime
-        default: "now"
       - name: body
         label: Content
         type: rich-text
+      - name: featuredImage
+        label: Featured Image
+        type: image
+      - name: date
+        label: Publish Date
+        type: date
+        default: "now"
+        
   - name: ourkidsclimate
     label: "Our Kids' Climate"
     type: collection
@@ -75,6 +81,7 @@ content:
       - name: body
         label: Content
         type: rich-text
+        
   - name: deartomorrow
     label: "DearTomorrow"
     type: collection
@@ -92,6 +99,7 @@ content:
       - name: body
         label: Content
         type: rich-text
+        
   - name: purposedisruptors
     label: "Purpose Disruptors"
     type: collection
@@ -126,6 +134,7 @@ content:
       - name: body
         label: Content
         type: rich-text
+        
   - name: carspreading
     label: "Carspreading"
     type: collection
@@ -143,6 +152,7 @@ content:
       - name: body
         label: Content
         type: rich-text
+        
   - name: agencyfornature
     label: "Agency for Nature"
     type: collection
@@ -160,6 +170,7 @@ content:
       - name: body
         label: Content
         type: rich-text
+        
   - name: cargorevolution
     label: "Cargo Revolution"
     type: collection
@@ -177,6 +188,7 @@ content:
       - name: body
         label: Content
         type: rich-text
+        
   - name: parentsforfuture
     label: "Parents for Future"
     type: collection
@@ -194,6 +206,7 @@ content:
       - name: body
         label: Content
         type: rich-text
+        
   - name: globalalliance
     label: "Global Alliance for a Green New Deal"
     type: collection
