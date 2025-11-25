@@ -1,6 +1,6 @@
 media:
   input: public/thoughts/images
-  output: thoughts/images
+  output: /thoughts/images
 
 content:
   - name: home
