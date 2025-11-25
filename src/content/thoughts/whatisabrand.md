@@ -7,9 +7,9 @@ As culture has become more mediated through digital platforms and advertising, t
 
 ![](thoughts/images/1-Brand-Toolkit.jpg)
 
-And they wouldn't be wrong. These are, generally speaking, the main elements that come together to form the look and feel of a brand. But when we run our branding processes, we find it helps to zoom out a bit.
+And they wouldn't be wrong. These are, generally speaking, the main elements that come together to form the look and feel of a brand. But when we run our branding processes, we find it helps to zoom out a bit
 
-![](thoughts/images/2-Brand-Personality.jpg)
+![](thoughts/images/2-Brand-Personality.jpg) 
 
 When we think of a brand we're familiar with, it's not unlike thinking of someone we know, or perhaps a celebrity. In the same way that a friend or coworker can be funny, loud, and brash, or reserved, thoughtful and quiet, so too can a brand. What we refer to as a 'brand' is how an organisation is perceived by its audience. Take the obvious example, Apple: some people feel a real affinity to the company and perceive it as cool, calm and beautifully simple, while others might see them as lofty, somewhat pretentious and overhyped.
 
