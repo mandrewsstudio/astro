@@ -17,9 +17,6 @@ content:
       - name: title
         label: Title
         type: string
-      - name: date
-        label: Date
-        type: date
       - name: body
         label: Content
         type: rich-text
@@ -54,6 +51,10 @@ content:
       - name: title
         label: Title
         type: string
+      - name: date
+        label: Publish Date
+        type: datetime
+        default: "now"
       - name: body
         label: Content
         type: rich-text
