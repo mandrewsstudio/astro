@@ -12,6 +12,8 @@ And they wouldn't be wrong. These are, generally speaking, the main elements tha
 
 When we think of a brand we're familiar with, it's not unlike thinking of someone we know, or perhaps a celebrity. In the same way that a friend or coworker can be funny, loud, and brash, or reserved, thoughtful and quiet, so too can a brand. What we refer to as a 'brand' is how an organisation is perceived by its audience. Take the obvious example, Apple: some people feel a real affinity to the company and perceive it as cool, calm and beautifully simple, while others might see them as lofty, somewhat pretentious and overhyped.
 
+![](/thoughts/images/2-Brand-Personality.jpg)
+
 So really a brand is a narrative in someone's mind — a story inferred by the user, customer or citizen. Let's look at another obvious example: Nike. Through their branding and communication, Nike tells a story about the world, their customer and themselves. Nike presents the world as a challenge to be bested, and their customers as ambitious go-getters. In this world, Nike provides the products and the lifestyle that matches the perceived ambition of their audience, setting themselves up as the cutting edge of technology, sportswear and culture.
 
 The work of branding is to take control of this narrative. To tell a compelling story about your own organisation that rings true to your audience and motivates them to engage with your work. A story will be formed whether or not you tell it, and the danger in neglecting your brand is that you will have little-to-no control over how your organisation is perceived.
