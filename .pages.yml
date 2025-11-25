@@ -42,10 +42,10 @@ content:
     type: collection
     path: src/content/thoughts
     view:
-      fields: [name, title, body]
-      sort: [name, title, body]
+      fields: [date, name, title, body]
+      sort: [date, name, title, body]
       default:
-        sort: name
+        sort: date
         order: desc
     fields:
       - name: title
