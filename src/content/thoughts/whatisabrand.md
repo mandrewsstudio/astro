@@ -5,11 +5,11 @@ Most people these days have at least a passing familiarity with the idea of a br
 
 As culture has become more mediated through digital platforms and advertising, the public has become more design literate, understanding that the way a piece of communication looks and sounds is formed by a series of decisions. So when we ask, 'what is a brand?' a lot of people would reasonably respond that a brand is a logo, a choice of fonts, a colour scheme and perhaps some graphic elements.
 
-![](thoughts/images/1-Brand-Toolkit.jpg)
+![](/thoughts/images/1-Brand-Toolkit.jpg)
 
 And they wouldn't be wrong. These are, generally speaking, the main elements that come together to form the look and feel of a brand. But when we run our branding processes, we find it helps to zoom out a bit
 
-![](thoughts/images/2-Brand-Personality.jpg) 
+![](/thoughts/images/2-Brand-Personality.jpg) 
 
 When we think of a brand we're familiar with, it's not unlike thinking of someone we know, or perhaps a celebrity. In the same way that a friend or coworker can be funny, loud, and brash, or reserved, thoughtful and quiet, so too can a brand. What we refer to as a 'brand' is how an organisation is perceived by its audience. Take the obvious example, Apple: some people feel a real affinity to the company and perceive it as cool, calm and beautifully simple, while others might see them as lofty, somewhat pretentious and overhyped.
 
