@@ -17,6 +17,7 @@ const thoughts = defineCollection({
     title: z.string(),
     date: z.date(),
     author: z.string().default('In Progress'),
+    featuredImage: z.string().optional(),
   }),
 });
 

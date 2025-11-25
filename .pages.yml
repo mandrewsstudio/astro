@@ -53,6 +53,9 @@ content:
       - name: title
         label: Title
         type: string
+      - name: description
+        label: Description
+        type: rich-text
       - name: body
         label: Content
         type: rich-text

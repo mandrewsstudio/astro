@@ -8,19 +8,36 @@ const sortedPosts = posts.sort((a, b) =>
   new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
 ---
-
-<BaseLayout title="Thoughts">
-  <div class="container">
-    <div class="article">
-      <h1>In Progress / Thoughts</h1>
+<BaseLayout>
+  <div class="container" style="padding-bottom: 20px">
+            <div class="work-para">
+                    <h2>Thinking in progress</h2>
+                </div>
+           
       
       {sortedPosts.map((post) => (
-        <article style="margin-bottom: 3rem;">
-          <h2>
-            <a href={`/thoughts/${post.slug}/`}>{post.data.title}</a>
-          </h2>
-          <p><em>{post.data.description}</em></p>
-          <p><small>Published {new Date(post.data.date).toLocaleDateString()}</small></p>
+        <article style="margin-bottom: 3rem; display: grid; grid-template-columns: 200px 1fr; gap: 2rem; align-items: start;">
+          
+          <!-- Featured Image -->
+          {post.data.featuredImage && (
+            <div>
+              <img 
+                src={post.data.featuredImage} 
+                alt={post.data.title}
+                style="width: 100%; height: 150px; object-fit: cover; border-radius: 4px;"
+              />
+            </div>
+          )}
+          
+          <!-- Post Content -->
+          <div>
+            <h2 style="margin-top: 0;">
+              <a href={`/thoughts/${post.slug}/`}>{post.data.title}</a>
+            </h2>
+            <p><em>{post.data.description}</em></p>
+            <p><small>Published {new Date(post.data.date).toLocaleDateString()}</small></p>
+          </div>
+          
         </article>
       ))}
     </div>
@@ -28,9 +45,17 @@ const sortedPosts = posts.sort((a, b) =>
 </BaseLayout>
 
 <style>
-  .container {
+  article {
     max-width: 800px;
     margin: 0 auto;
     padding: 4.5rem 2rem 2rem 2rem;
+  }
+  
+  /* Responsive layout for mobile */
+  @media (max-width: 768px) {
+    article {
+      grid-template-columns: 1fr !important;
+      gap: 1rem !important;
+    }
   }
 </style>
