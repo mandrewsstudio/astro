@@ -324,21 +324,21 @@ declare module 'astro:content' {
   slug: "section1";
   body: string;
   collection: "home";
-  data: any
+  data: InferEntrySchema<"home">
 } & { render(): Render[".md"] };
 "Section2.md": {
 	id: "Section2.md";
   slug: "section2";
   body: string;
   collection: "home";
-  data: any
+  data: InferEntrySchema<"home">
 } & { render(): Render[".md"] };
 "Section3.md": {
 	id: "Section3.md";
   slug: "section3";
   body: string;
   collection: "home";
-  data: any
+  data: InferEntrySchema<"home">
 } & { render(): Render[".md"] };
 };
 "ourkidsclimate": {
@@ -416,7 +416,7 @@ declare module 'astro:content' {
   slug: "whatisabrand";
   body: string;
   collection: "thoughts";
-  data: any
+  data: InferEntrySchema<"thoughts">
 } & { render(): Render[".md"] };
 };
 
@@ -428,5 +428,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = never;
+	export type ContentConfig = typeof import("../../src/content/config.js");
 }
