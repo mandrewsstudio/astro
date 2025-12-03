@@ -1,0 +1,40 @@
+---
+import WorkGrid from "../components/WorkGrid.astro";
+import WorkItem from "../components/WorkItem.astro";
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('thoughts');
+const sortedPosts = posts.sort((a, b) => 
+  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+const recentPosts = sortedPosts.slice(0, 3);
+---
+<div style="margin: 12em 2.5em ;">
+<WorkGrid columns={4} >
+    <div>Thoughts in progress</div>
+  {recentPosts.map((post) => (
+    <div>
+          <!-- Featured Image -->
+          {post.data.featuredImage && (
+            <div>
+              <a style="border:none;" href={`/thoughts/${post.slug}/`}><img 
+                src={post.data.featuredImage} 
+                alt={post.data.title}
+                style="width: 100%"
+              /></a>
+            </div>
+          )}
+          
+          <!-- Post Content -->
+          <div><a style="border:none;" href={`/thoughts/${post.slug}/`}>
+            <h3 style="margin: 5px 0 0 0;">
+              {post.data.title}
+            </h3>
+            <p style="padding-right:10px">{post.data.description}</p>
+            <p><small>{new Date(post.data.date).toLocaleDateString()}</small></p></a>
+          </div>
+          </div>
+      ))}
+</WorkGrid>
+</div>

@@ -1,7 +1,10 @@
-        <section id="showcase">
-            <div class="container" style="padding-top: 0px!important;">
-                <div class="work-grid">
-                <div class="work-item" data-label="Our Kids' Climate">
+---
+import WorkGrid from "../components/WorkGrid.astro";
+---
+
+       <section id="showcase">
+<WorkGrid columns={3}>
+                    <div class="work-item" data-label="Our Kids' Climate">
                     <a href="../work/ourkidsclimate/" style="border-bottom: none">
                             <img src="../images/ourkidsclimate/OKC-Posters-Landscape.avif" style="object-position: left;" alt="Project 4" />
 
@@ -17,27 +20,12 @@
                             <img src="../images/InProgress-Home-PurposeDisruptors.avif" alt="Project 2" />
                         </a>
                     </div>
-                    <div class="work-item" data-label="Carspreading">
-                        <a href="../work/carspreading/">
-                            <img src="../images/InProgress-Home-Carspreading.avif" alt="Project 2" />
-                        </a>
-                    </div>
-<div class="work-item" data-label="Electrify London">
-                        <a href="../work/electrifylondon/">
-                            <img src="../images/InProgress-Home-Electrify.avif" alt="Project 3" />
-                        </a>
-                    </div>
-                    <div class="work-item" data-label="Agency for Nature">
-                        <a href="../work/agencyfornature/">
-                            <img src="../images/InProgress-Home-AFN.avif" alt="Project 1" />
-                        </a>
-                    </div>
+                    
                     
 
                     
                     
-                </div>
-            </div>
+</WorkGrid>
         </section>
    <script>
 (function () {
@@ -62,10 +50,10 @@
                 top: "0px",
                 whiteSpace: "nowrap",
                 fontSize: "20px",
-                padding: "2px 7px",
-                background: "rgba(0,0,0,0.75)",
+                padding: "1px 8px",
+                background: "rgba(0,0,0,1)",
                 color: "#fff",
-                borderRadius: "4px",
+                borderRadius: "0",
             });
             document.body.appendChild(cursorLabel);
             cursorLabelEl = document.getElementById("cursor-label");

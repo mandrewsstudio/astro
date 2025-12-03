@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/BaseLayout.astro';
 import HomeShowcase from '../components/HomeShowcase.astro';
-
+import HomeBlog from '../components/Homeblog.astro';
 import { getEntryBySlug } from "astro:content";
 
 // Load markdown sections
@@ -15,61 +15,154 @@ const section5 = await getEntryBySlug("home", "section5");
 const { Content: Section1Content } = await section1.render();
 const { Content: Section2Content } = await section2.render();
 const { Content: Section3Content } = await section3.render();
+const { Content: Section4Content } = await section4.render();
 ---
 <Layout title={section1.data.title}>
   
   <!-- section1 SECTION -->
   <section class="intro">
-    <div class="container">
-      <h1>{section1.data.title}</h1>
-      <a href="/work/" style="border-bottom: none">
-        <video autoplay muted loop playsinline>
-          <source src='/images/IP-Intro-25_2.mp4' type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </a>
+    <div class="scroll-move-right">
+    <div class="inpro"><img src="/images/In-Prog.svg"></div>
+  </div>
+    <div class="scroll-move-right">
+    <div class="gress" style="margin-left: -25px;">
+      <img src="/images/gress.svg">
+      <div class="loader">
+      <img src="/images/IPLogoWhite.gif">
+    </div></div>
     </div>
+ 
+      <h1>{section1.data.title}</h1>
+
+
+
+    <a href="/work/" style="border-bottom: none">
+      <video autoplay muted loop playsinline>
+        <source src='/images/IP-Intro-25_2.mp4' type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </a>
+    
   </section>
 
   <!-- TAGLINE SECTION -->
   <section class="more">
     <div class="container">
-      <h2 style="color: #fff; font-size: 3em;">{section2.data.title}</h2>
-
-      <div style="color: #fff; text-align: left!important; font-size: 1.5em!important">
+      <div class="text">
+        <h2>{section2.data.title}</h2>
         <Section2Content />
-      </div>
-
-      <a class="button" href={section2.data.buttonLink} style="color: #fff">
-        {section2.data.buttonText}
-      </a>
-    </div>
-
-    <HomeShowcase />
-
-    <div class="container">
-      <h2>
-        <a href="/work" style="color: #fff">See all work →</a>
-      </h2>
-    </div>
-  </section>
-
-  <!-- HIGHLIGHT SECTION -->
-  <div class="container">
-    <div class="highlight-grid">
-      <div 
-        class="highlight-item" 
-        style={`background: url('${section3.data.image}') no-repeat center; background-size: cover;`}
-      ></div>
-
-      <div class="highlight-item">
-        <h2>{section3.data.title}</h2>
-        <Section3Content />
-        <a class="button" href={section3.data.buttonLink}>
-          {section3.data.buttonText}
+        <a class="button" href={section2.data.buttonLink}>
+          {section2.data.buttonText}
         </a>
       </div>
     </div>
+
+<div class="scroll-move-left">
+  <HomeShowcase client:load />
+</div>
+
+  </section>
+
+  <!-- HIGHLIGHT SECTION -->
+  <div class="scroll-move-right">
+  <div class="highlight-grid" style="margin:200px 0 0 -25px">
+    
+    <div 
+      class="highlight-item" 
+      style={`background: url('${section3.data.image}') no-repeat center; background-size: cover;`}
+    ></div>
+
+    <div class="highlight-text">
+      <Section3Content />
+      <a class="button" href={section3.data.buttonLink}>
+        {section3.data.buttonText}
+      </a>
+    </div>
+</div>
+</div>
+
+<div class="scroll-move-left">
+<div class="highlight-grid">
+    <div class="highlight-text">
+      <Section4Content />
+      <a class="button" href={section4.data.buttonLink}>
+        {section4.data.buttonText}
+      </a>
+    </div>
+
+    <div 
+      class="highlight-item" 
+      style={`background: url('${section4.data.image}') no-repeat center; background-size: cover;`}
+    ></div>
+  </div>
   </div>
 
+  <HomeBlog />
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('.scroll-move-left, .scroll-move-right');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    
+    // Track which elements have been activated
+    const activatedElements = new Set();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          activatedElements.add(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    animatedElements.forEach(el => observer.observe(el));
+
+    function updateAnimation() {
+      const currentScrollY = window.scrollY;
+      const isScrollingDown = currentScrollY > lastScrollY;
+      
+      // Only update activated (visible) elements
+      activatedElements.forEach(element => {
+        if (element.classList.contains('scroll-move-left')) {
+          element.style.transform = isScrollingDown ? 'translateX(0)' : 'translateX(25px)';
+        } else {
+          element.style.transform = isScrollingDown ? 'translateX(25px)' : 'translateX(0)';
+        }
+      });
+      
+      lastScrollY = currentScrollY;
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking && activatedElements.size > 0) {
+        requestAnimationFrame(updateAnimation);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll);
+    
+    // Initial positions
+    document.querySelectorAll('.scroll-move-left').forEach(el => el.style.transform = 'translateX(25px)');
+    document.querySelectorAll('.scroll-move-right').forEach(el => el.style.transform = 'translateX(0)');
+  });
+</script>
 </Layout>
+
+<style>
+  .scroll-move-left {
+    opacity: 1;
+    transform: translateX(25px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+  }
+
+  .scroll-move-right {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+  }
+</style>

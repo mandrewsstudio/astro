@@ -16,31 +16,20 @@ const { Content } = await post.render();
 ---
 
 <BaseLayout title={`${post.data.title} - Thoughts`}>
-  <div class="container">
-    <div class="article">
-      <h1><a href="/">In Progress</a> / Thoughts</h1>
+    <div class="container">
+      <div class="article">
+        <div class="standfirst">
+      <h4><a href="/thoughts">THOUGHTS IN PROGRESS</a></h4>
       
-      <h2>{post.data.title}</h2>
+      <h1>{post.data.title}</h1>
       <h3>{post.data.description}</h3>
-      
-      <!-- Your animated GIF -->
-      <img src="/images/Logo-Load-Tiny.gif" style="width: 25px; text-align: center; display: block; margin-left: auto; margin-right: auto" />
+      </div>
       
       <Content />
       
       <!-- Closing GIF -->
       <img src="/images/Logo-Load-Tiny.gif" style="width: 25px; text-align: center; display: block; margin-left: auto; margin-right: auto; margin-top: 2rem" />
-    </div>
+   </div> 
   </div>
 </BaseLayout>
 
-<style>
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 4.5rem 2rem 2rem 2rem;
-  }
-  .article h1 {
-    margin-bottom: 2rem;
-  }
-</style>

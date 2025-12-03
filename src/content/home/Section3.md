@@ -1,8 +1,10 @@
 ---
-title: What is a brand?
-image: /images/whatisabrand/1-Brand-Toolkit.jpg
-buttonText: Read the article →
-buttonLink: /whatisabrand/
+title: Para 1
+image: /images/Studio.avif
+buttonText: Our Studio →
+buttonLink: /about/
 ---
 
-Story, personality and perception — a brand is more than you might think.
+In Progress supports brands and projects that strive to make the world a better place.
+
+If we don’t believe in it, we don’t do it.

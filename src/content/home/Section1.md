@@ -1,5 +1,5 @@
 ---
-title: Design makes good work better.
+title: Design and branding for better.
 ---
 
 
