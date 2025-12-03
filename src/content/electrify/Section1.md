@@ -5,6 +5,7 @@ Electrify London envisions a city with decarbonised transport, quiet streets and
 
 To secure public support and manifesto commitments pushing forward the electrification of road transport, the campaign needed an identity ready to reach businesses, political changemakers and everyday Londoners alike.
 
+Notes:  
 Could London's streets be quieter? Less polluted? More efficient?
 
 We want London to become a leading city for electrified transport options, with widespread use of e-cargo bikes, electric car clubs, and electric vans and quadricycles, leading to cleaner air and lower carbon emissions.
