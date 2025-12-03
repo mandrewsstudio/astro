@@ -1,16 +1,14 @@
 ---
 title: Lead the Charge
 ---
-Electrify London envisions a city with decarbonised transport, quiet streets and clean air. Launched by [Clean Cities](https://cleancitiescampaign.org/) at a pivotal point before the 2026 elections
+Electrify London envisions a city with decarbonised transport, quiet streets and clean air. The campaign was launched by [Clean Cities](https://cleancitiescampaign.org/) at a pivotal point before the 2026 elections, where more than 1,800 councillors and five Mayors will be elected and given responsibility for 95% of the roads in London.
+
+To secure manifesto commitments which will push forward the electrification of road transport, the campaign needed an identity ready to reach businesses, political changemakers and everyday Londoners alike.
 
 Could London's streets be quieter? Less polluted? More efficient?
 
-Electrify London envisions a city with clean air, quiet streets and more efficient vehicles of all kinds.
+We want London to become a leading city for electrified transport options, with widespread use of e-cargo bikes, electric car clubs, and electric vans and quadricycles, leading to cleaner air and lower carbon emissions.
 
-We developed an identity for the campaign which had to reach businesses, political changemakers and everyday Londoners.
+In May 2026, This is a pivotal moment to secure manifesto commitments that drive forward the electrification of road transport.
 
-We want London to become a leading city for electrified transport options, with widespread use of e-cargo bikes, electric car clubs, and electric vans and quadricycles, leading to cleaner air and lower carbon emissions.  
-  
-In May 2026, more than 1,800 councillors and five Mayors will be elected with responsibility for 95% of the roads in London. This is a pivotal moment to secure manifesto commitments that drive forward the electrification of road transport.  
-  
 We’ll be organising events, putting out research, communicating with decision makers and the public, and doing everything in partnership
