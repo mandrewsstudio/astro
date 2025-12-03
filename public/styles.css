@@ -800,15 +800,15 @@ nav {
     color: #fff;
     max-width: 250px;
     font-size: 1.8em;
-    margin:120px 0 30px 2rem !important;
+    margin:120px 0 30px 6vw !important;
 }
 
 
     .intro video {
-    width: 100%;
+    width: 94vw;
     border-radius: 0px;
     object-fit:cover;
-    margin: 0 0 0 2rem;
+    margin: 0 0 0 6vw;
 
     object-position: bottom;
      display: block;
