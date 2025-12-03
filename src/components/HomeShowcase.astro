@@ -1,29 +1,28 @@
 ---
-import WorkGrid from "../components/WorkGrid.astro";
+import WorkGrid from "./WorkGrid.astro";
 ---
 
-       <section id="showcase">
-<WorkGrid columns={3}>
-                    <div class="work-item" data-label="Our Kids' Climate">
-                    <a href="../work/ourkidsclimate/" style="border-bottom: none">
-                            <img src="../images/ourkidsclimate/OKC-Posters-Landscape.avif" style="object-position: left;" alt="Project 4" />
+<section id="showcase">
+  <WorkGrid columns={3}>
+    <div class="work-item" data-label="Our Kids' Climate">
+      <a href="../work/ourkidsclimate/" style="border-bottom: none">
+        <img src="../images/ourkidsclimate/OKC-Posters-Landscape.avif" style="object-position: left;" alt="Project 4" />
+      </a>
+    </div>
+    <div class="work-item" data-label="Dear Tomorrow">
+      <a href="../work/deartomorrow/">
+        <img src="../images/InProgress-Home-DearTomorrow.avif" alt="Project 4" />
+      </a>
+    </div>
+    <div class="work-item" data-label="Purpose Disruptors">
+      <a href="../work/purposedisruptors/">
+        <img src="../images/InProgress-Home-PurposeDisruptors.avif" alt="Project 2" />
+      </a>
+    </div>
+  </WorkGrid>
+</section>
 
-                    </a>
-                </div>
-                    <div class="work-item" data-label="Dear Tomorrow">
-                        <a href="../work/deartomorrow/">
-                            <img src="../images/InProgress-Home-DearTomorrow.avif" alt="Project 4" />
-                        </a>
-                    </div>
-                <div class="work-item" data-label="Purpose Disruptors">
-                        <a href="../work/purposedisruptors/">
-                            <img src="../images/InProgress-Home-PurposeDisruptors.avif" alt="Project 2" />
-                        </a>
-                    </div>
-        
-</WorkGrid>
-        </section>
-   <script>
+<script>
 (function () {
     if (typeof window === "undefined") return;
 
@@ -75,27 +74,25 @@ import WorkGrid from "../components/WorkGrid.astro";
         }
 
         document.querySelectorAll("[data-label]").forEach((el) => {
-            // Cast to HTMLElement to access dataset property
-            const htmlEl = el as HTMLElement;
+            // REMOVED: const htmlEl = el as HTMLElement;
             
-            htmlEl.addEventListener("mouseenter", () => {
+            el.addEventListener("mouseenter", () => {
                 if (cursorLabelEl) {
-                    cursorLabelEl.textContent = htmlEl.dataset.label || "";
+                    cursorLabelEl.textContent = el.dataset.label || "";
                     cursorLabelEl.style.opacity = "1";
                 }
             });
 
-            htmlEl.addEventListener("mouseleave", () => {
+            el.addEventListener("mouseleave", () => {
                 if (cursorLabelEl) {
                     cursorLabelEl.style.opacity = "0";
                 }
             });
 
-            htmlEl.addEventListener("mousemove", (e) => {
-                // Cast to MouseEvent to access clientX/clientY
-                const mouseEvent = e as MouseEvent;
-                mouseX = mouseEvent.clientX;
-                mouseY = mouseEvent.clientY;
+            el.addEventListener("mousemove", (e) => {
+                // REMOVED: const mouseEvent = e as MouseEvent;
+                mouseX = e.clientX;
+                mouseY = e.clientY;
                 if (!pending && cursorLabelEl) {
                     pending = true;
                     requestAnimationFrame(updateLabelPosition);
