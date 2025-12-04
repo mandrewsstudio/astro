@@ -112,7 +112,7 @@ h4 {
 
 .intro h1 {
     
-    margin-left: 50%;
+    margin: 2em 0 1em 50%;
     color: #fff;
 }
 
@@ -530,10 +530,7 @@ margin-top: -10px;
     margin-top: 0.4rem;
 }
 
-#showcase .work-item:hover img,
-#showcase .work-item-wide:hover video {
-    transform: scale(1.03);
-}
+
 
 #showcase img {
     margin-bottom: -0.6em;
