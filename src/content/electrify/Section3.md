@@ -1,4 +1,4 @@
 ---
-title: Section 3
+title: About the design
 ---
-Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+Inspired by the transport revolution of the 50s and 60s, our goal was to bring the modernism of the mid-century to a new generation of EVs.
