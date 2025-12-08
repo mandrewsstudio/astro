@@ -1,4 +1,7 @@
 ---
-title: Project background
+title: An energy boost
 ---
-Inspired by the transport revolution of the 50s and 60s, our goal was to bring the modernism of the mid-century to a new generation of EVs.
+Avoiding corporate style  
+Runs the risk of looking boring  
+Moving away from dark greens and blues  
+Embracing colour
