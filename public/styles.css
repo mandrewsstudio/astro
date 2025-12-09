@@ -617,7 +617,7 @@ footer .columns {
     text-align: justify;
 }   
 
-p img {
+.article p img {
     max-width: 150%!important;
     height: inherit;
     margin: 50px 0 50px -25%!important;
@@ -841,7 +841,11 @@ margin-top: -10px;
 }
 
  
-
+.article p img {
+    max-width: 100%!important;
+    height: inherit;
+    margin: 50px 0 50px 0!important;
+}
    
 
  
