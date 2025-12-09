@@ -1,7 +1,13 @@
 ---
 title: An energy boost
 ---
-The most compelling image which came from our early workshops with the Electrify London team was that of a city with freedom to move and breathe. We wanted the campaign to feel like an antidote to lethargy, a rallying cry to the kind of people who get stuff done and advocate for their communities.
+In our early workshops with the Electrify London team, we identified a key challenge the campaign had to compete with: lethargy. In a time of increasing political polarisation and avoidance of the impacts of climate change, the campaign needed to mobilise people who get things done.
+
+joy and ambition, we brought
+
+We wanted the campaign to feel like an antidote to lethargy, and to mobilise people who get stuff done
+
+A compelling image which came from our early workshops with the Electrify London team was that of a city with freedom to move and breathe.
 
 Steering away from your typical 'eco' imagery of leaves and recycling symbols
 
