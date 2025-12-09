@@ -32,7 +32,7 @@ const recentPosts = sortedPosts.slice(0, 3);
               {post.data.title}
             </h3>
             <p style="padding-right:10px">{post.data.description}</p>
-            <p><small>{new Date(post.data.date).toLocaleDateString()}</small></p></a>
+            <p><small>{new Date(post.data.date).toLocaleDateString('en-GB')}</small></p></a>
           </div>
           </div>
       ))}

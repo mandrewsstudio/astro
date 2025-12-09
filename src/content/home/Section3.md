@@ -1,6 +1,6 @@
 ---
 title: Para 1
-image: /images/Studio.avif
+image: /images/parentsforfuture/PFF-3.avif
 buttonText: Our Studio →
 buttonLink: /about/
 ---

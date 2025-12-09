@@ -200,20 +200,6 @@ declare module 'astro:content' {
   collection: "about";
   data: any
 } & { render(): Render[".md"] };
-"Section8.md": {
-	id: "Section8.md";
-  slug: "section8";
-  body: string;
-  collection: "about";
-  data: any
-} & { render(): Render[".md"] };
-"Section9.md": {
-	id: "Section9.md";
-  slug: "section9";
-  body: string;
-  collection: "about";
-  data: any
-} & { render(): Render[".md"] };
 };
 "agencyfornature": {
 "Section1.md": {
