@@ -1,7 +1,7 @@
 ---
 title: An energy boost
 ---
-In our early workshops with the Electrify London team, we identified a key challenge the campaign had to overcome: lethargy. In a time of increasing political polarisation and denial of the impacts of climate change, the campaign needed to beat apathy/inaction/inertia and mobilise people who get things done.
+In our early workshops with the Electrify London team, we identified a key challenge the campaign had to overcome: lethargy. In a time of increasing political polarisation and denial of the impacts of climate change, the campaign needed to beat inaction and mobilise people who get things done.
 
 Inspired by the transport revolution of the 50s and 60s, our goal was to bring the modernism of the mid-century to a new generation of EVs.
 
