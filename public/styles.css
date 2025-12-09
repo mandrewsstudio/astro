@@ -585,7 +585,7 @@ footer .columns {
 /* Article Styles */
 /* ==================== */
 .article {
-    margin:0 auto 150px auto;
+    margin:50px auto 150px auto;
     max-width: 800px;
     text-align: center!important;
 }
@@ -596,7 +596,7 @@ footer .columns {
     text-align: center!important;
 }
 
-.article h3, h2 {
+.article h3, .article h2 {
     width:100%;
     padding: 30px 20px 0 20px;
 }
