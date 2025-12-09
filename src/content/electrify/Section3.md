@@ -1,4 +1,4 @@
 ---
 title: ????
 ---
-The final brand avoided stereotypical 'eco' imagery and palettes, instead opting for a set of colourful icons which represented London's busy streets and could be used in motion. The lines of icons show off the variety of solutions the campaign proposes, with vehicles for every need ranging from transit vans to cargo bikes.
+The final brand avoided stereotypical 'eco' imagery and palettes, instead opting for a set of colourful icons which represented London's busy streets and could be used in motion. The rolling rows of icons show off the variety of solutions the campaign proposes, with vehicles for every need ranging from transit vans to cargo bikes.
