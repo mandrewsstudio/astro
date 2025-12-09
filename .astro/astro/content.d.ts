@@ -418,27 +418,6 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "thoughts": {
-"2025-11-26-the-c-word.md": {
-	id: "2025-11-26-the-c-word.md";
-  slug: "2025-11-26-the-c-word";
-  body: string;
-  collection: "thoughts";
-  data: InferEntrySchema<"thoughts">
-} & { render(): Render[".md"] };
-"whatisabrand copy 2.md": {
-	id: "whatisabrand copy 2.md";
-  slug: "whatisabrand-copy-2";
-  body: string;
-  collection: "thoughts";
-  data: InferEntrySchema<"thoughts">
-} & { render(): Render[".md"] };
-"whatisabrand copy.md": {
-	id: "whatisabrand copy.md";
-  slug: "whatisabrand-copy";
-  body: string;
-  collection: "thoughts";
-  data: InferEntrySchema<"thoughts">
-} & { render(): Render[".md"] };
 "whatisabrand.md": {
 	id: "whatisabrand.md";
   slug: "whatisabrand";
