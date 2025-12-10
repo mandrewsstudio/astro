@@ -18,31 +18,17 @@
         </div>
       </nav>
       <!-- Load client-side scripts in order and only in the browser. -->
-    <script type="module">
-      // helper to load an external script and return a promise
-      function loadScript(src, attrs = {}) {
-        return new Promise((resolve, reject) => {
-          const s = document.createElement('script');
-          s.src = src;
-          Object.keys(attrs).forEach(k => s.setAttribute(k, attrs[k]));
-          s.onload = () => resolve(s);
-          s.onerror = () => reject(new Error('Failed to load ' + src));
-          document.head.appendChild(s);
-        });
-      }
-
-      // Run only in the browser — load Glide first, then glide-init. logo-rotate is independent.
-      (async () => {
-        try {
-          // Load logo-rotate early (it guards for missing nodes)
-          await loadScript('/js/logo-rotate.js');
-
-          // Load Glide from CDN, then our init script which checks for Glide
-          await loadScript('https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/glide.min.js');
-          await loadScript('/js/glide-init.js');
-        } catch (e) {
-          // Fail silently but keep a console message for debugging
-          console.warn('Client script load error:', e);
-        }
-      })();
-    </script>
+  <script type="module">
+  // Load only logo-rotate.js
+  (async () => {
+    try {
+      const s = document.createElement('script');
+      s.src = '/js/logo-rotate.js';
+      s.onload = () => console.log('logo-rotate loaded');
+      s.onerror = () => console.warn('Failed to load logo-rotate');
+      document.head.appendChild(s);
+    } catch (e) {
+      console.warn('Script load error:', e);
+    }
+  })();
+</script>
