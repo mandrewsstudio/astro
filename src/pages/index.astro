@@ -99,56 +99,7 @@ const { Content: Section4Content } = await section4.render();
 
   <HomeBlog />
 
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const animatedElements = document.querySelectorAll('.scroll-move-left, .scroll-move-right');
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-    
-    // Track which elements have been activated
-    const activatedElements = new Set();
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          activatedElements.add(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    animatedElements.forEach(el => observer.observe(el));
-
-    function updateAnimation() {
-      const currentScrollY = window.scrollY;
-      const isScrollingDown = currentScrollY > lastScrollY;
-      
-      // Only update activated (visible) elements
-      activatedElements.forEach(element => {
-        if (element.classList.contains('scroll-move-left')) {
-          element.style.transform = isScrollingDown ? 'translateX(0)' : 'translateX(25px)';
-        } else {
-          element.style.transform = isScrollingDown ? 'translateX(25px)' : 'translateX(0)';
-        }
-      });
-      
-      lastScrollY = currentScrollY;
-      ticking = false;
-    }
-
-    function onScroll() {
-      if (!ticking && activatedElements.size > 0) {
-        requestAnimationFrame(updateAnimation);
-        ticking = true;
-      }
-    }
-
-    window.addEventListener('scroll', onScroll);
-    
-    // Initial positions
-    document.querySelectorAll('.scroll-move-left').forEach(el => el.style.transform = 'translateX(25px)');
-    document.querySelectorAll('.scroll-move-right').forEach(el => el.style.transform = 'translateX(0)');
-  });
-</script>
+  
 </Layout>
 
 <style>

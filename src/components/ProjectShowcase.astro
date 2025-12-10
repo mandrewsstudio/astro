@@ -6,101 +6,74 @@ import WorkGrid from "./WorkGrid.astro";
   <WorkGrid columns={3}>
     <div class="work-item" data-label="Our Kids' Climate">
       <a href="../work/ourkidsclimate/" style="border-bottom: none">
-        <img src="../images/ourkidsclimate/OKC-Posters-Landscape.avif" style="object-position: left;" alt="Project 4" />
+        <img
+          src="../images/ourkidsclimate/OKC-Posters-Landscape.avif"
+          style="object-position: left;"
+          alt="Project 4"
+        />
       </a>
     </div>
     <div class="work-item" data-label="Dear Tomorrow">
       <a href="../work/deartomorrow/">
-        <img src="../images/InProgress-Home-DearTomorrow.avif" alt="Project 4" />
+        <img
+          src="../images/InProgress-Home-DearTomorrow.avif"
+          alt="Project 4"
+        />
       </a>
     </div>
     <div class="work-item" data-label="Purpose Disruptors">
       <a href="../work/purposedisruptors/">
-        <img src="../images/InProgress-Home-PurposeDisruptors.avif" alt="Project 2" />
+        <img
+          src="../images/InProgress-Home-PurposeDisruptors.avif"
+          alt="Project 2"
+        />
       </a>
     </div>
   </WorkGrid>
 </section>
 
 <script>
-(function () {
-    if (typeof window === "undefined") return;
-
-    window.addEventListener("DOMContentLoaded", () => {
-        // --- Cursor label ---
-        let cursorLabelEl = document.getElementById("cursor-label");
-        
-        if (!cursorLabelEl) {
-            const cursorLabel = document.createElement("div");
-            cursorLabel.id = "cursor-label";
-            // Minimal inline styles so it works without extra CSS
-            Object.assign(cursorLabel.style, {
-                position: "fixed",
-                pointerEvents: "none",
-                zIndex: "9999",
-                opacity: "0",
-                transition: "opacity 120ms ease, transform 80ms linear",
-                transform: "translateY(0)",
-                left: "0px",
-                top: "0px",
-                whiteSpace: "nowrap",
-                fontSize: "20px",
-                padding: "1px 8px",
-                background: "rgba(0,0,0,1)",
-                color: "#fff",
-                borderRadius: "0",
-            });
-            document.body.appendChild(cursorLabel);
-            cursorLabelEl = document.getElementById("cursor-label");
-        }
-
-        // Add null check here
-        if (!cursorLabelEl) {
-            console.error('Cursor label element not found');
-            return;
-        }
-
-        // Track mousemove with rAF for smooth updates
-        let pending = false;
-        let mouseX = 0, mouseY = 0;
-        
-        function updateLabelPosition() {
-            pending = false;
-            // Add safety check
-            if (cursorLabelEl) {
-                cursorLabelEl.style.left = mouseX + 10 + "px";
-                cursorLabelEl.style.top = mouseY + 30 + "px";
-            }
-        }
-
-        document.querySelectorAll("[data-label]").forEach((el) => {
-            // Cast to HTMLElement to access dataset property
-            const htmlEl = el as HTMLElement;
-            
-            htmlEl.addEventListener("mouseenter", () => {
-                if (cursorLabelEl) {
-                    cursorLabelEl.textContent = htmlEl.dataset.label || "";
-                    cursorLabelEl.style.opacity = "1";
-                }
-            });
-
-            htmlEl.addEventListener("mouseleave", () => {
-                if (cursorLabelEl) {
-                    cursorLabelEl.style.opacity = "0";
-                }
-            });
-
-            htmlEl.addEventListener("mousemove", (e) => {
-                // Cast to MouseEvent to access clientX/clientY
-                const mouseEvent = e as MouseEvent;
-                mouseX = mouseEvent.clientX;
-                mouseY = mouseEvent.clientY;
-                if (!pending && cursorLabelEl) {
-                    pending = true;
-                    requestAnimationFrame(updateLabelPosition);
-                }
-            });
+  document.addEventListener("DOMContentLoaded", () => {
+    let e = document.getElementById("cursor-label");
+    if (!e) {
+      const t = document.createElement("div");
+      (t.id = "cursor-label"),
+        Object.assign(t.style, {
+          position: "fixed",
+          pointerEvents: "none",
+          zIndex: 9999,
+          opacity: 0,
+          transition: "opacity 120ms ease",
+          left: "0",
+          top: "0",
+          whiteSpace: "nowrap",
+          fontSize: "20px",
+          padding: "1px 8px",
+          background: "#000",
+          color: "#fff",
+          borderRadius: 0,
+        }),
+        document.body.appendChild((e = t));
+    }
+    let t = !1,
+      n = 0,
+      l = 0;
+    function o() {
+      (t = !1),
+        e && ((e.style.left = n + 10 + "px"), (e.style.top = l + 30 + "px"));
+    }
+    document.querySelectorAll("[data-label]").forEach((i) => {
+      i.addEventListener("mouseenter", () => {
+        e && ((e.textContent = i.dataset.label || ""), (e.style.opacity = 1));
+      }),
+        i.addEventListener("mouseleave", () => {
+          e && (e.style.opacity = 0);
+        }),
+        i.addEventListener("mousemove", (s) => {
+          (n = s.clientX),
+            (l = s.clientY),
+            !t && e && ((t = !0), requestAnimationFrame(o));
         });
     });
-})();
+  });
 </script>

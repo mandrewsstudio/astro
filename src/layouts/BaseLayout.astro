@@ -1,27 +1,81 @@
 ---
-const { title = 'In Progress Studio' } = Astro.props;
-import Navigation from '../components/Navigation.astro';
-import Footer from '../components/Footer.astro';
+const { title = "In Progress Studio" } = Astro.props;
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} - Branding and design for nonprofits and good businesses</title>
-    <link rel="stylesheet" href="/styles.css">
-  
-  <link rel="icon" type="image/x-icon" href="/images/Logo-Load-Tiny.gif" media="(prefers-color-scheme: light)" />
-  <link rel="icon" type="image/x-icon" href="/images/IPLogoWhite.gif" media="(prefers-color-scheme: dark)" />
-    <script data-goatcounter="https://inprogress.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <title>
+      {title} - Branding and design for nonprofits and good businesses
+    </title>
+    <link rel="stylesheet" href="/styles.css" />
+
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/images/Logo-Load-Tiny.gif"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/images/IPLogoWhite.gif"
+      media="(prefers-color-scheme: dark)"
+    />
+    <script
+      data-goatcounter="https://inprogress.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"></script>
   </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const e = document.querySelectorAll(
+        ".scroll-move-left, .scroll-move-right"
+      );
+      let t = window.scrollY,
+        n = !1;
+      const l = new Set(),
+        o = new IntersectionObserver(
+          (i) => {
+            i.forEach((s) => {
+              s.isIntersecting && l.add(s.target);
+            });
+          },
+          { threshold: 0.1 }
+        );
+      e.forEach((i) => o.observe(i));
+      function i() {
+        const s = window.scrollY,
+          c = s > t;
+        l.forEach((a) => {
+          a.classList.contains("scroll-move-left")
+            ? (a.style.transform = c ? "translateX(0)" : "translateX(25px)")
+            : (a.style.transform = c ? "translateX(25px)" : "translateX(0)");
+        }),
+          (t = s),
+          (n = !1);
+      }
+      function s() {
+        !n && l.size > 0 && (requestAnimationFrame(i), (n = !0));
+      }
+      window.addEventListener("scroll", s),
+        document
+          .querySelectorAll(".scroll-move-left")
+          .forEach((s) => (s.style.transform = "translateX(25px)")),
+        document
+          .querySelectorAll(".scroll-move-right")
+          .forEach((s) => (s.style.transform = "translateX(0)"));
+    });
+  </script>
   <body>
     <header>
-        <Navigation />
+      <Navigation />
     </header>
     <slot />
-   <Footer />
-
-    
+    <Footer />
   </body>
 </html>
