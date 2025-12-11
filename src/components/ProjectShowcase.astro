@@ -32,48 +32,4 @@ import WorkGrid from "./WorkGrid.astro";
   </WorkGrid>
 </section>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    let e = document.getElementById("cursor-label");
-    if (!e) {
-      const t = document.createElement("div");
-      (t.id = "cursor-label"),
-        Object.assign(t.style, {
-          position: "fixed",
-          pointerEvents: "none",
-          zIndex: 9999,
-          opacity: 0,
-          transition: "opacity 120ms ease",
-          left: "0",
-          top: "0",
-          whiteSpace: "nowrap",
-          fontSize: "20px",
-          padding: "1px 8px",
-          background: "#000",
-          color: "#fff",
-          borderRadius: 0,
-        }),
-        document.body.appendChild((e = t));
-    }
-    let t = !1,
-      n = 0,
-      l = 0;
-    function o() {
-      (t = !1),
-        e && ((e.style.left = n + 10 + "px"), (e.style.top = l + 30 + "px"));
-    }
-    document.querySelectorAll("[data-label]").forEach((i) => {
-      i.addEventListener("mouseenter", () => {
-        e && ((e.textContent = i.dataset.label || ""), (e.style.opacity = 1));
-      }),
-        i.addEventListener("mouseleave", () => {
-          e && (e.style.opacity = 0);
-        }),
-        i.addEventListener("mousemove", (s) => {
-          (n = s.clientX),
-            (l = s.clientY),
-            !t && e && ((t = !0), requestAnimationFrame(o));
-        });
-    });
-  });
-</script>
+

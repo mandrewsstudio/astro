@@ -33,42 +33,69 @@ import Footer from "../components/Footer.astro";
   </head>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const e = document.querySelectorAll(
+      const s = document.querySelectorAll(
         ".scroll-move-left, .scroll-move-right"
       );
-      let t = window.scrollY,
-        n = !1;
-      const l = new Set(),
-        o = new IntersectionObserver(
-          (i) => {
-            i.forEach((s) => {
-              s.isIntersecting && l.add(s.target);
-            });
-          },
-          { threshold: 0.1 }
-        );
-      e.forEach((i) => o.observe(i));
-      function i() {
-        const s = window.scrollY,
-          c = s > t;
-        l.forEach((a) => {
-          a.classList.contains("scroll-move-left")
-            ? (a.style.transform = c ? "translateX(0)" : "translateX(25px)")
-            : (a.style.transform = c ? "translateX(25px)" : "translateX(0)");
-        }),
-          (t = s),
-          (n = !1);
+      const o = new IntersectionObserver(
+        (e) => {
+          e.forEach((t) => {
+            t.target.classList.toggle("in-view", t.isIntersecting);
+          });
+        },
+        { threshold: 0.1 }
+      );
+      s.forEach((e) => o.observe(e));
+      let c = document.getElementById("cursor-label");
+      if (!c) {
+        const e = document.createElement("div");
+        (e.id = "cursor-label"),
+          Object.assign(e.style, {
+            position: "fixed",
+            pointerEvents: "none",
+            zIndex: 9999,
+            opacity: 0,
+            transition: "opacity 120ms ease",
+            left: "0",
+            top: "0",
+            whiteSpace: "nowrap",
+            fontSize: "20px",
+            padding: "1px 8px",
+            background: "#000",
+            color: "#fff",
+            borderRadius: 0,
+          }),
+          document.body.appendChild((c = e));
       }
-      function s() {
-        !n && l.size > 0 && (requestAnimationFrame(i), (n = !0));
+      let m = !1,
+        x = 0,
+        y = 0;
+      function p() {
+        (m = !1),
+          c && ((c.style.left = x + 10 + "px"), (c.style.top = y + 30 + "px"));
       }
-      window.addEventListener("scroll", s),
-        document
-          .querySelectorAll(".scroll-move-left")
-          .forEach((s) => (s.style.transform = "translateX(25px)")),
-        document
-          .querySelectorAll(".scroll-move-right")
-          .forEach((s) => (s.style.transform = "translateX(0)"));
+      document.querySelectorAll("[data-label]").forEach((e) => {
+        e.addEventListener("mouseenter", () => {
+          c && ((c.textContent = e.dataset.label || ""), (c.style.opacity = 1));
+        });
+        e.addEventListener("mouseleave", () => {
+          c && (c.style.opacity = 0);
+        });
+        e.addEventListener("mousemove", (t) => {
+          (x = t.clientX),
+            (y = t.clientY),
+            !m && c && ((m = !0), requestAnimationFrame(p));
+        });
+      });
+      const l = document.querySelector(".hero-section img");
+      if (l) {
+        let r = 0;
+        window.addEventListener("scroll", () => {
+          const e = Math.floor(window.scrollY / 20);
+          e !== r &&
+            ((r = e),
+            (l.style.transform = `translate(-50%,-47%) rotate(${r * 22.5}deg)`));
+        });
+      }
     });
   </script>
   <body>
