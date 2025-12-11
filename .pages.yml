@@ -66,6 +66,9 @@ content:
         label: Publish Date
         type: date
         default: "now"
+      - name: author
+        label: Author
+        type: string
         
   - name: ourkidsclimate
     label: "Our Kids' Climate"
