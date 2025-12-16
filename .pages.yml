@@ -56,16 +56,21 @@ content:
       - name: description
         label: Description
         type: rich-text
-      - name: body
-        label: Content
-        type: rich-text
-      - name: featuredImage
-        label: Featured Image
-        type: image
+      - name: author
+        label: Author
+        type: string
       - name: date
         label: Publish Date
         type: date
         default: "now"
+      - name: featuredImage
+        label: Featured Image
+        type: image
+      - name: body
+        label: Content
+        type: rich-text
+
+
         
   - name: ourkidsclimate
     label: "Our Kids' Climate"
