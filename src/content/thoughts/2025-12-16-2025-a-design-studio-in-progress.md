@@ -3,6 +3,7 @@ title: "2025: A Design Studio In Progress"
 description: Looking back on the year we started In Progress
 author: In Progress
 date: 2025-12-16
+featuredImage: /thoughts/images/2025-In-Progress-Featured.png
 ---
 As 2025 draws to a close and the world rolls into 2026, we’re looking back at our first year as a studio with a mixture of pride and anticipation.
 
@@ -38,7 +39,7 @@ Mike was asked to help judge the White Pencil entries for the New Blood Awards t
 
 ![](/thoughts/images/2025-Carspreading.avif)
 
-### Spreading the word on obnoxious cars 
+### Spreading the word on obnoxious cars
 
 This project in collaboration with Serious People and Clean Cities saw the invention of a new word: Carspreading. The campaign we created has spread across London, Cardiff and Edinburgh, and in October, Cardiff became the first council to enact higher parking charges for heavier vehicles. Our new word has been frantically reported on by the Daily Mail and GB News, and explained on BBC Newsround among others!
 
