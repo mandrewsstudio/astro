@@ -3,7 +3,7 @@ title: What is a brand?
 description: Embodying your story and personality to make an impact with your audience.
 author: Mike Andrews
 date: 2025-07-08
-featuredImage: /thoughts/images/3-Brand-Story.jpg
+featuredImage: /thoughts/images/2025-What-Is-a-Brand-Featured.png
 ---
 Most people these days have at least a passing familiarity with the idea of a brand. A big part of how we consume culture is how we interact with brands, from social media accounts of multinational corporations, to much-loved smaller brands that connect on a personal or social level.
 
