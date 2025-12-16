@@ -10,13 +10,13 @@ const sortedPosts = posts.sort((a, b) =>
 ---
 <BaseLayout>
   <div class="container" style="padding-bottom: 20px">
-            <div class="work-para">
-                    <h2>Thinking in progress</h2>
-                </div>
+<div style="margin-bottom:10em;">
+                    <h1>Thinking in progress</h1>
+</div>
            
       
       {sortedPosts.map((post) => (
-        <article style="margin-bottom: 3rem; display: grid; grid-template-columns: 200px 1fr; gap: 2rem; align-items: start;">
+        <div style="margin: 3rem 0 0 0; display: grid; grid-template-columns: 40vw 1fr; gap: 1rem; align-items: start;">
           
           <!-- Featured Image -->
           {post.data.featuredImage && (
@@ -24,21 +24,21 @@ const sortedPosts = posts.sort((a, b) =>
               <img 
                 src={post.data.featuredImage} 
                 alt={post.data.title}
-                style="width: 100%; height: 150px; object-fit: cover; border-radius: 4px;"
+                style="width: 100%; object-fit: cover;aspect-ratio: 8.5 / 6;"
               />
             </div>
           )}
           
           <!-- Post Content -->
           <div>
-            <h2 style="margin-top: 0;">
+            <h3 style="margin-top: 0;">
               <a href={`/thoughts/${post.slug}/`}>{post.data.title}</a>
-            </h2>
+            </h3>
             <p><em>{post.data.description}</em></p>
             <p><small>Published {new Date(post.data.date).toLocaleDateString()}</small></p>
           </div>
           
-        </article>
+        </div>
       ))}
     </div>
   </div>
