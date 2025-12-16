@@ -16,7 +16,7 @@ const sortedPosts = posts.sort((a, b) =>
            
       
       {sortedPosts.map((post) => (
-        <div style="margin: 3rem 0 0 0; display: grid; grid-template-columns: 40vw 1fr; gap: 1rem; align-items: start;">
+        <div style="margin: 3rem 0 0 0; display: grid; grid-template-columns: 40vw repeat(2, 1fr); gap: 1rem; align-items: start;">
           
           <!-- Featured Image -->
           {post.data.featuredImage && (
