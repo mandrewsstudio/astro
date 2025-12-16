@@ -606,7 +606,7 @@ footer .columns {
 
 
 .article a {
-
+border-bottom: dotted 1px;
 }
 
 .article p {
@@ -614,7 +614,7 @@ footer .columns {
     line-height: 1.35em;
     letter-spacing: -0.6%;
     max-width: 625px;
-    text-align: justify;
+    text-align: left;
 }   
 
 .article p img {
