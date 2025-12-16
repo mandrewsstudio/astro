@@ -11,8 +11,6 @@ As 2025 draws to a close and the world rolls into 2026, we’re looking back at 
 
 ## Launching the studio
 
-In 2024, the Glimpse Collective wound down operations and dispersed into the world to continue working independently. As Design Director for the collective, Mike had found himself with a close network of clients and collaborators in and around climate activism and campaigning. Meanwhile, Lorna was finishing up her contract with Glasgow’s Step Up to Net Zero programme and was looking to continue working on climate and social causes. Working together on a shared project seemed like a natural next step. As In Progress we bring together Mike’s experience in both commercial branding and design for campaigners, and Lorna’s experience in the non-profit world and expertise in sustainability training and implementation.
-
 We chose the name In Progress because it’s honest. We want to work with people who help make society better, and we know that this work is constantly evolving as we adapt to changing conditions, just as we ourselves are constantly learning and changing. 
 
 Our first year under the In Progress name has been a busy one! Here are some of the highlights:
