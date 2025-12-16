@@ -21,7 +21,7 @@ const recentPosts = sortedPosts.slice(0, 3);
               <a style="border:none;" href={`/thoughts/${post.slug}/`}><img 
                 src={post.data.featuredImage} 
                 alt={post.data.title}
-                style="width: 100%"
+                style="width: 100%;object-fit:cover; display:block;aspect-ratio: 8.5 / 6;"
               /></a>
             </div>
           )}
