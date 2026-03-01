@@ -230,6 +230,15 @@ for (let i = 0; i < totalItems; i++) {
 </div>
 
 <script>
+  // Client-side randomization
+  const images = [/* your imageSources array */];
+  const sizeClasses = [/* your sizeClasses array */];
+  
+  // Shuffle on every page load
+  const shuffledImages = [...images].sort(() => Math.random() - 0.5);
+  const shuffledSizes = [...sizeClasses].sort(() => Math.random() - 0.5);
+  
+  // Generate grid items client-side
   // Simple lightbox functionality with video support - autoplay and muted
   const lightbox = document.getElementById('lightbox');
   const lightboxContent = document.getElementById('lightbox-content');
