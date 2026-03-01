@@ -105,9 +105,9 @@ for (let i = 0; i < totalItems; i++) {
   }
 
   .grid {
-    max-width: 1400px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0px;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 20px;
@@ -206,10 +206,12 @@ for (let i = 0; i < totalItems; i++) {
   }
 </style>
 
-
-<div style="text-align: right; max-width: 1400px; margin: 0 auto; padding: 0 20px 40px;">
+<!-- Add this after the grid div, before the lightbox container -->
+<div style="text-align: left; max-width: 100%; margin: 0 auto; padding: 0 0 40px;">
   <a href="#" id="randomize-link" style="color: #999; text-decoration: none; font-size: 14px; letter-spacing: 0.5px; border-bottom: 1px solid #333; padding-bottom: 2px;">randomise ↻</a>
 </div>
+
+
 <div class="grid">
   {gridItems.map((item) => (
     item.type === 'blank' ? (
@@ -310,13 +312,21 @@ for (let i = 0; i < totalItems; i++) {
       lightboxContent.innerHTML = '';
     }
   });
-// Randomize functionality for Vercel
+// Randomize functionality - client-side shuffle
 const randomizeLink = document.getElementById('randomize-link');
 if (randomizeLink) {
   randomizeLink.addEventListener('click', (e) => {
     e.preventDefault();
-    // Add timestamp to force Vercel edge cache to revalidate
-    window.location.href = window.location.pathname + '?r=' + Date.now();
+    
+    // Get all grid items except blanks
+    const grid = document.querySelector('.grid');
+    const items = Array.from(document.querySelectorAll('.grid-item:not(.blank)'));
+    
+    // Shuffle the items
+    for (let i = items.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      grid.insertBefore(items[j], items[i].nextSibling);
+    }
   });
 }
 </script>
