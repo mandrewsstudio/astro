@@ -1,0 +1,33 @@
+---
+// src/pages/agency-for-nature.astro
+import WorkLayout from "../layouts/WorkLayout.astro";
+import WorkPara from "../components/WorkPara.astro";
+import WorkItemWide from "../components/WorkItemWide.astro";
+import WorkGrid from "../components/WorkGrid.astro";
+import WorkItem from "../components/WorkItem.astro";
+import { getEntryBySlug } from "astro:content";
+import MasonryGrid from "../components/MasonryGrid.astro";
+
+
+// Load markdown sections
+const section1 = await getEntryBySlug("agencyfornature", "section1");
+
+
+
+// Prepare compiled HTML for each section
+const { Content: Section1Content } = await section1.render();
+
+
+---
+
+<WorkLayout title="Work In Progress">
+  <WorkPara title="Work In Progress">
+Unfinished ideas, unused visuals and other bits from the cutting room floor.  </WorkPara>
+
+  
+
+  <MasonryGrid />
+
+
+ 
+</WorkLayout>

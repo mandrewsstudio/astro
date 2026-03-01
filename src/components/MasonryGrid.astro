@@ -1,0 +1,247 @@
+---
+// MasonryGrid.astro
+// Dynamic masonry grid with simple lightbox - click anywhere to close
+
+const baseURL = 'https://inprogress.studio/images/wip/';
+
+const filenames = [
+  'Bottleneck-Experiment-2.avif',
+  'Screenshot 2026-02-27 at 15.31.49.avif',
+  'Screenshot 2026-02-27 at 15.11.54.avif',
+  'Screenshot 2026-02-27 at 15.13.24.avif',
+  'Screenshot 2026-02-27 at 15.24.03.avif',
+  'Screenshot 2026-02-27 at 15.26.15.avif',
+  'Screenshot 2026-02-27 at 15.28.04.avif',
+  'Screenshot 2026-02-27 at 15.28.24.avif',
+  'Screenshot 2026-02-27 at 15.28.44.avif',
+  'Screenshot 2026-02-27 at 15.29.26.avif',
+  'Screenshot 2026-02-27 at 15.31.03.avif',
+  'Screenshot 2026-02-27 at 15.31.22.avif',
+  'Screenshot 2026-02-27 at 15.32.12.avif',
+  'Screenshot 2026-02-27 at 15.34.09.avif',
+  'Screenshot 2026-02-27 at 15.35.19.avif',
+  'Screenshot 2026-02-27 at 15.36.03.avif',
+  'Screenshot 2026-02-27 at 15.36.38.avif',
+  'Screenshot 2026-02-27 at 15.37.03.avif',
+  'Screenshot 2026-02-27 at 15.38.23.avif',
+  'Screenshot 2026-02-27 at 15.38.55.avif',
+  'Screenshot 2026-02-27 at 15.40.03.avif',
+  'Screenshot 2026-02-27 at 15.40.30.avif',
+  'Screenshot 2026-02-27 at 15.42.27.avif',
+  'Screenshot 2026-02-27 at 15.42.47.avif'
+];
+
+// Build full URLs with encoded spaces
+const imageSources = filenames.map(name => baseURL + encodeURIComponent(name));
+
+// Shuffle function for deterministic randomization at build time
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// Create deterministic random based on current timestamp (changes per build)
+const shuffledImages = shuffleArray([...imageSources]);
+
+// Size classes distribution
+const sizeClasses = [
+  'size1', 'size1', 'size1', 'size1', 'size1', 'size1', 'size1', 'size1', 'size1', 'size1', // 10 small
+  'size2', 'size2', 'size2', 'size2', 'size2', // 5 horizontal
+  'size3', 'size3', // 2 wide landscape
+  'size4', 'size4', // 2 large square
+  'size5', // 1 horizontal large
+  'size6', // 1 extra wide
+  'size7', 'size7', // 2 tall vertical
+  'size8', // 1 big block
+  'blank', 'blank', 'blank', 'blank', 'blank' // 5 blanks
+];
+
+// Shuffle size classes for random distribution
+const shuffledSizes = shuffleArray([...sizeClasses]);
+
+// Generate grid items
+const totalItems = 45;
+const gridItems = [];
+let imageIndex = 0;
+
+for (let i = 0; i < totalItems; i++) {
+  const sizeClass = shuffledSizes[i % shuffledSizes.length];
+  
+  if (sizeClass === 'blank') {
+    gridItems.push({ type: 'blank', sizeClass });
+  } else if (imageIndex < shuffledImages.length) {
+    gridItems.push({ 
+      type: 'image', 
+      sizeClass, 
+      src: shuffledImages[imageIndex],
+      alt: '' 
+    });
+    imageIndex++;
+  } else {
+    gridItems.push({ type: 'blank', sizeClass: 'blank' });
+  }
+}
+---
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #111;
+  }
+
+  .grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+
+  .grid-item {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    cursor: pointer;
+  }
+
+  .grid-item.blank {
+    background: transparent;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  /* Size classes with more variation */
+  .grid-item.size1 { grid-column: span 1; grid-row: span 1; }  /* small square */
+  .grid-item.size2 { grid-column: span 2; grid-row: span 1; }  /* horizontal rectangle */
+  .grid-item.size3 { grid-column: span 3; grid-row: span 1; }  /* wide landscape */
+  .grid-item.size4 { grid-column: span 2; grid-row: span 2; }  /* large square */
+  .grid-item.size5 { grid-column: span 3; grid-row: span 2; }  /* horizontal large */
+  .grid-item.size6 { grid-column: span 4; grid-row: span 2; }  /* extra wide */
+  .grid-item.size7 { grid-column: span 2; grid-row: span 3; }  /* tall vertical */
+  .grid-item.size8 { grid-column: span 3; grid-row: span 3; }  /* big block */
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: opacity 0.2s ease;
+  }
+
+  img:hover {
+    opacity: 0.85;
+  }
+
+  /* Simple lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  @media (max-width: 1000px) {
+    .grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    /* Simplify on mobile */
+    .grid-item.size1,
+    .grid-item.size2,
+    .grid-item.size3,
+    .grid-item.size4,
+    .grid-item.size5,
+    .grid-item.size6,
+    .grid-item.size7,
+    .grid-item.size8 {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+  }
+</style>
+
+<div class="grid">
+  {gridItems.map((item) => (
+    item.type === 'blank' ? (
+      <div class="grid-item blank"></div>
+    ) : (
+      <div class={`grid-item ${item.sizeClass}`} data-src={item.src}>
+        <img src={item.src} alt={item.alt} loading="lazy" />
+      </div>
+    )
+  ))}
+</div>
+
+<!-- Simple lightbox container -->
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  // Simple lightbox functionality
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const gridItems = document.querySelectorAll('.grid-item:not(.blank)');
+
+  // Open lightbox on image click
+  gridItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      const src = item.dataset.src;
+      if (src) {
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+      }
+    });
+  });
+
+  // Close lightbox when clicking anywhere (including the image)
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+    lightboxImg.src = ''; // Clear src
+  });
+
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
+    }
+  });
+</script>
