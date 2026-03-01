@@ -1,6 +1,7 @@
 ---
 // MasonryGrid.astro
 // Dynamic masonry grid with simple lightbox - click anywhere to close
+// Now with video support - autoplay and muted
 
 const baseURL = 'https://inprogress.studio/images/wip/';
 
@@ -28,7 +29,8 @@ const filenames = [
   'Screenshot 2026-02-27 at 15.40.03.avif',
   'Screenshot 2026-02-27 at 15.40.30.avif',
   'Screenshot 2026-02-27 at 15.42.27.avif',
-  'Screenshot 2026-02-27 at 15.42.47.avif'
+  'Screenshot 2026-02-27 at 15.42.47.avif',
+  'Uplift-Sketches.mov'
 ];
 
 // Build full URLs with encoded spaces
@@ -63,7 +65,7 @@ const sizeClasses = [
 const shuffledSizes = shuffleArray([...sizeClasses]);
 
 // Generate grid items
-const totalItems = 45;
+const totalItems = 48;
 const gridItems = [];
 let imageIndex = 0;
 
@@ -73,10 +75,12 @@ for (let i = 0; i < totalItems; i++) {
   if (sizeClass === 'blank') {
     gridItems.push({ type: 'blank', sizeClass });
   } else if (imageIndex < shuffledImages.length) {
+    const src = shuffledImages[imageIndex];
+    const isVideo = src.endsWith('.mov') || src.endsWith('.mp4') || src.endsWith('.webm');
     gridItems.push({ 
-      type: 'image', 
+      type: isVideo ? 'video' : 'image',
       sizeClass, 
-      src: shuffledImages[imageIndex],
+      src: src,
       alt: '' 
     });
     imageIndex++;
@@ -129,14 +133,14 @@ for (let i = 0; i < totalItems; i++) {
   .grid-item.size7 { grid-column: span 2; grid-row: span 3; }  /* tall vertical */
   .grid-item.size8 { grid-column: span 3; grid-row: span 3; }  /* big block */
 
-  img {
+  img, video {
     display: block;
     width: 100%;
     height: auto;
     transition: opacity 0.2s ease;
   }
 
-  img:hover {
+  img:hover, video:hover {
     opacity: 0.85;
   }
 
@@ -159,7 +163,7 @@ for (let i = 0; i < totalItems; i++) {
     display: flex;
   }
 
-  .lightbox img {
+  .lightbox img, .lightbox video {
     max-width: 90vw;
     max-height: 90vh;
     width: auto;
@@ -168,6 +172,8 @@ for (let i = 0; i < totalItems; i++) {
     background: transparent;
     cursor: pointer;
   }
+
+
 
   @media (max-width: 1000px) {
     .grid {
@@ -201,8 +207,12 @@ for (let i = 0; i < totalItems; i++) {
   {gridItems.map((item) => (
     item.type === 'blank' ? (
       <div class="grid-item blank"></div>
+    ) : item.type === 'video' ? (
+      <div class={`grid-item ${item.sizeClass}`} data-src={item.src} data-type="video">
+        <video src={item.src} autoplay muted loop playsinline></video>
+      </div>
     ) : (
-      <div class={`grid-item ${item.sizeClass}`} data-src={item.src}>
+      <div class={`grid-item ${item.sizeClass}`} data-src={item.src} data-type="image">
         <img src={item.src} alt={item.alt} loading="lazy" />
       </div>
     )
@@ -211,37 +221,77 @@ for (let i = 0; i < totalItems; i++) {
 
 <!-- Simple lightbox container -->
 <div class="lightbox" id="lightbox">
-  <img id="lightbox-img" src="" alt="">
+  <div id="lightbox-content"></div>
 </div>
 
 <script>
-  // Simple lightbox functionality
+  // Simple lightbox functionality with video support - autoplay and muted
   const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxContent = document.getElementById('lightbox-content');
   const gridItems = document.querySelectorAll('.grid-item:not(.blank)');
 
-  // Open lightbox on image click
+  // Open lightbox on click
   gridItems.forEach(item => {
     item.addEventListener('click', (e) => {
       const src = item.dataset.src;
+      const type = item.dataset.type;
+      
       if (src) {
-        lightboxImg.src = src;
+        // Clear previous content
+        lightboxContent.innerHTML = '';
+        
+        // Create appropriate media element
+        if (type === 'video') {
+  const video = document.createElement('video');
+  video.src = src;
+  video.controls = true;
+  video.autoplay = true;
+  video.muted = true;
+  video.loop = true;
+  video.playsInline = true;
+  video.style.maxWidth = 'min(90vw, 90vh * 16/9)';
+  video.style.maxHeight = '90vh';
+  video.style.width = 'auto';
+  video.style.height = 'auto';
+  video.style.objectFit = 'contain';
+  lightboxContent.appendChild(video);
+} else {
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = '';
+  img.style.maxWidth = '90vw';
+  img.style.maxHeight = '90vh';
+  img.style.width = 'auto';
+  img.style.height = 'auto';
+  img.style.objectFit = 'contain';
+  lightboxContent.appendChild(img);
+}
+        
         lightbox.classList.add('active');
       }
     });
   });
 
-  // Close lightbox when clicking anywhere (including the image)
+  // Close lightbox when clicking anywhere (including the content)
   lightbox.addEventListener('click', () => {
     lightbox.classList.remove('active');
-    lightboxImg.src = ''; // Clear src
+    // Stop video playback when closing
+    const video = lightboxContent.querySelector('video');
+    if (video) {
+      video.pause();
+    }
+    lightboxContent.innerHTML = ''; // Clear content
   });
 
   // Close on escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && lightbox.classList.contains('active')) {
       lightbox.classList.remove('active');
-      lightboxImg.src = '';
+      const video = lightboxContent.querySelector('video');
+      if (video) {
+        video.pause();
+      }
+      lightboxContent.innerHTML = '';
     }
   });
 </script>
