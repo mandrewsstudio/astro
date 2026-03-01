@@ -39,20 +39,8 @@ const filenames = [
 // Build full URLs with encoded spaces
 const imageSources = filenames.map(name => baseURL + encodeURIComponent(name));
 
-// Shuffle function for deterministic randomization at build time
-function shuffleArray(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
-
-// Create deterministic random based on current timestamp (changes per build)
-const shuffledImages = shuffleArray([...imageSources]);
-
-// Size classes distribution
-const sizeClasses = [
+// Size classes distribution - moved to client-side
+const sizeClassList = [
   'size1', 'size1', 'size1', 'size1', 'size1', 'size1', 'size1', 'size1', 'size1', 'size1', // 10 small
   'size2', 'size2', 'size2', 'size2', 'size2', // 5 horizontal
   'size3', 'size3', // 2 wide landscape
@@ -63,34 +51,6 @@ const sizeClasses = [
   'size8', // 1 big block
   'blank', 'blank', 'blank', 'blank', 'blank' // 5 blanks
 ];
-
-// Shuffle size classes for random distribution
-const shuffledSizes = shuffleArray([...sizeClasses]);
-
-// Generate grid items
-const totalItems = 48;
-const gridItems = [];
-let imageIndex = 0;
-
-for (let i = 0; i < totalItems; i++) {
-  const sizeClass = shuffledSizes[i % shuffledSizes.length];
-  
-  if (sizeClass === 'blank') {
-    gridItems.push({ type: 'blank', sizeClass });
-  } else if (imageIndex < shuffledImages.length) {
-    const src = shuffledImages[imageIndex];
-    const isVideo = src.endsWith('.mov') || src.endsWith('.mp4') || src.endsWith('.webm');
-    gridItems.push({ 
-      type: isVideo ? 'video' : 'image',
-      sizeClass, 
-      src: src,
-      alt: '' 
-    });
-    imageIndex++;
-  } else {
-    gridItems.push({ type: 'blank', sizeClass: 'blank' });
-  }
-}
 ---
 
 <style>
@@ -166,6 +126,14 @@ for (let i = 0; i < totalItems; i++) {
     display: flex;
   }
 
+  #lightbox-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+
   .lightbox img, .lightbox video {
     max-width: 90vw;
     max-height: 90vh;
@@ -175,8 +143,6 @@ for (let i = 0; i < totalItems; i++) {
     background: transparent;
     cursor: pointer;
   }
-
-
 
   @media (max-width: 1000px) {
     .grid {
@@ -206,23 +172,8 @@ for (let i = 0; i < totalItems; i++) {
   }
 </style>
 
-
-
-<div class="grid">
-  {gridItems.map((item) => (
-    item.type === 'blank' ? (
-      <div class="grid-item blank"></div>
-    ) : item.type === 'video' ? (
-      <div class={`grid-item ${item.sizeClass}`} data-src={item.src} data-type="video">
-        <video src={item.src} autoplay muted loop playsinline></video>
-      </div>
-    ) : (
-      <div class={`grid-item ${item.sizeClass}`} data-src={item.src} data-type="image">
-        <img src={item.src} alt={item.alt} loading="lazy" />
-      </div>
-    )
-  ))}
-</div>
+<!-- Empty grid container - will be populated by JavaScript -->
+<div class="grid" id="masonry-grid"></div>
 
 <!-- Simple lightbox container -->
 <div class="lightbox" id="lightbox">
@@ -230,82 +181,179 @@ for (let i = 0; i < totalItems; i++) {
 </div>
 
 <script>
-  // Client-side randomization
-  const images = [/* your imageSources array */];
-  const sizeClasses = [/* your sizeClasses array */];
-  
-  // Shuffle on every page load
-  const shuffledImages = [...images].sort(() => Math.random() - 0.5);
-  const shuffledSizes = [...sizeClasses].sort(() => Math.random() - 0.5);
-  
-  // Generate grid items client-side
-  // Simple lightbox functionality with video support - autoplay and muted
-  const lightbox = document.getElementById('lightbox');
-  const lightboxContent = document.getElementById('lightbox-content');
-  const gridItems = document.querySelectorAll('.grid-item:not(.blank)');
+  (function() {
+    // Client-side randomization
+    const baseURL = '/images/wip/';
+    
+    const filenames = [
+      'Bottleneck-Experiment-2.avif',
+      'Comp 5.mp4',
+      'Comp 5_2.mp4',
+      'odenewday.avif',
+      'Screenshot 2026-02-27 at 15.31.49.avif',
+      'Screenshot 2026-02-27 at 15.11.54.avif',
+      'Screenshot 2026-02-27 at 15.13.24.avif',
+      'Screenshot 2026-02-27 at 15.24.03.avif',
+      'Screenshot 2026-02-27 at 15.26.15.avif',
+      'Screenshot 2026-02-27 at 15.28.04.avif',
+      'Screenshot 2026-02-27 at 15.28.24.avif',
+      'Screenshot 2026-02-27 at 15.28.44.avif',
+      'Screenshot 2026-02-27 at 15.29.26.avif',
+      'Screenshot 2026-02-27 at 15.31.03.avif',
+      'Screenshot 2026-02-27 at 15.31.22.avif',
+      'Screenshot 2026-02-27 at 15.32.12.avif',
+      'Screenshot 2026-02-27 at 15.34.09.avif',
+      'Screenshot 2026-02-27 at 15.35.19.avif',
+      'Screenshot 2026-02-27 at 15.36.03.avif',
+      'Screenshot 2026-02-27 at 15.36.38.avif',
+      'Screenshot 2026-02-27 at 15.37.03.avif',
+      'Screenshot 2026-02-27 at 15.38.23.avif',
+      'Screenshot 2026-02-27 at 15.38.55.avif',
+      'Screenshot 2026-02-27 at 15.40.03.avif',
+      'Screenshot 2026-02-27 at 15.40.30.avif',
+      'Screenshot 2026-02-27 at 15.42.27.avif',
+      'Screenshot 2026-02-27 at 15.42.47.avif',
+      'Uplift-Sketches.mov'
+    ];
 
-  // Open lightbox on click
-  gridItems.forEach(item => {
-    item.addEventListener('click', (e) => {
-      const src = item.dataset.src;
-      const type = item.dataset.type;
+    // Build full URLs with encoded spaces
+    const imageSources = filenames.map(name => baseURL + encodeURIComponent(name));
+
+    const sizeClassList = [
+      'size1', 'size1', 'size1', 'size1', 'size1', 'size1', 'size1', 'size1', 'size1', 'size1',
+      'size2', 'size2', 'size2', 'size2', 'size2',
+      'size3', 'size3',
+      'size4', 'size4',
+      'size5',
+      'size6',
+      'size7', 'size7',
+      'size8',
+      'blank', 'blank', 'blank', 'blank', 'blank'
+    ];
+
+    // Shuffle function
+    function shuffleArray(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    // Shuffle on every page load
+    const shuffledImages = shuffleArray([...imageSources]);
+    const shuffledSizes = shuffleArray([...sizeClassList]);
+
+    // Generate grid items
+    const totalItems = 48;
+    const gridItems = [];
+    let imageIndex = 0;
+
+    for (let i = 0; i < totalItems; i++) {
+      const sizeClass = shuffledSizes[i % shuffledSizes.length];
       
-      if (src) {
-        // Clear previous content
-        lightboxContent.innerHTML = '';
-        
-        // Create appropriate media element
-        if (type === 'video') {
-  const video = document.createElement('video');
-  video.src = src;
-  video.controls = true;
-  video.autoplay = true;
-  video.muted = true;
-  video.loop = true;
-  video.playsInline = true;
-  video.style.maxWidth = 'min(90vw, 90vh * 16/9)';
-  video.style.maxHeight = '90vh';
-  video.style.width = 'auto';
-  video.style.height = 'auto';
-  video.style.objectFit = 'contain';
-  lightboxContent.appendChild(video);
-} else {
-  const img = document.createElement('img');
-  img.src = src;
-  img.alt = '';
-  img.style.maxWidth = '90vw';
-  img.style.maxHeight = '90vh';
-  img.style.width = 'auto';
-  img.style.height = 'auto';
-  img.style.objectFit = 'contain';
-  lightboxContent.appendChild(img);
-}
-        
-        lightbox.classList.add('active');
+      if (sizeClass === 'blank') {
+        gridItems.push({ type: 'blank', sizeClass });
+      } else if (imageIndex < shuffledImages.length) {
+        const src = shuffledImages[imageIndex];
+        const isVideo = src.endsWith('.mov') || src.endsWith('.mp4') || src.endsWith('.webm');
+        gridItems.push({ 
+          type: isVideo ? 'video' : 'image',
+          sizeClass, 
+          src: src,
+          alt: '' 
+        });
+        imageIndex++;
+      } else {
+        gridItems.push({ type: 'blank', sizeClass: 'blank' });
+      }
+    }
+
+    // Render the grid
+    const grid = document.getElementById('masonry-grid');
+    let html = '';
+    
+    gridItems.forEach(item => {
+      if (item.type === 'blank') {
+        html += `<div class="grid-item blank"></div>`;
+      } else if (item.type === 'video') {
+        html += `<div class="grid-item ${item.sizeClass}" data-src="${item.src}" data-type="video">
+          <video src="${item.src}" autoplay muted loop playsinline></video>
+        </div>`;
+      } else {
+        html += `<div class="grid-item ${item.sizeClass}" data-src="${item.src}" data-type="image">
+          <img src="${item.src}" alt="${item.alt}" loading="lazy" />
+        </div>`;
       }
     });
-  });
+    
+    grid.innerHTML = html;
 
-  // Close lightbox when clicking anywhere (including the content)
-  lightbox.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-    // Stop video playback when closing
-    const video = lightboxContent.querySelector('video');
-    if (video) {
-      video.pause();
-    }
-    lightboxContent.innerHTML = ''; // Clear content
-  });
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxContent = document.getElementById('lightbox-content');
+    const gridItemsElements = document.querySelectorAll('.grid-item:not(.blank)');
 
-  // Close on escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+    // Open lightbox on click
+    gridItemsElements.forEach(item => {
+      item.addEventListener('click', (e) => {
+        const src = item.dataset.src;
+        const type = item.dataset.type;
+        
+        if (src) {
+          lightboxContent.innerHTML = '';
+          
+          if (type === 'video') {
+            const video = document.createElement('video');
+            video.src = src;
+            video.controls = true;
+            video.autoplay = true;
+            video.muted = true;
+            video.loop = true;
+            video.playsInline = true;
+            video.style.maxWidth = '90vw';
+            video.style.maxHeight = '90vh';
+            video.style.width = 'auto';
+            video.style.height = 'auto';
+            video.style.objectFit = 'contain';
+            lightboxContent.appendChild(video);
+          } else {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = '';
+            img.style.maxWidth = '90vw';
+            img.style.maxHeight = '90vh';
+            img.style.width = 'auto';
+            img.style.height = 'auto';
+            img.style.objectFit = 'contain';
+            lightboxContent.appendChild(img);
+          }
+          
+          lightbox.classList.add('active');
+        }
+      });
+    });
+
+    // Close lightbox when clicking anywhere
+    lightbox.addEventListener('click', () => {
       lightbox.classList.remove('active');
       const video = lightboxContent.querySelector('video');
       if (video) {
         video.pause();
       }
       lightboxContent.innerHTML = '';
-    }
-  });
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        lightbox.classList.remove('active');
+        const video = lightboxContent.querySelector('video');
+        if (video) {
+          video.pause();
+        }
+        lightboxContent.innerHTML = '';
+      }
+    });
+  })();
 </script>
