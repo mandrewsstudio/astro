@@ -16,6 +16,7 @@ const { Content: Section1Content } = await section1.render();
 const { Content: Section2Content } = await section2.render();
 const { Content: Section3Content } = await section3.render();
 const { Content: Section4Content } = await section4.render();
+const { Content: Section5Content } = await section5.render();
 ---
 <Layout title={section1.data.title}>
   
@@ -32,7 +33,7 @@ const { Content: Section4Content } = await section4.render();
     </div></div>
     </div>
  
-      <h1>{section1.data.title}</h1>
+      
 
 
 
@@ -42,64 +43,37 @@ const { Content: Section4Content } = await section4.render();
         Your browser does not support the video tag.
       </video>  
     </a>
-    
-  </section>
-
-  <!-- TAGLINE SECTION -->
-  <section class="more">
-    <div class="container">
-      <div class="text">
-        <h2>{section2.data.title}</h2>
-        <Section2Content />
-        <a class="button" href={section2.data.buttonLink}>
-          {section2.data.buttonText}
-        </a>
-      </div>
-    </div>
-
-<div class="scroll-move-left">
-  <HomeShowcase />
-</div>
-
-  </section>
+    <h1>{section1.data.title}</h1>
 
   <!-- HIGHLIGHT SECTION -->
-  <div class="scroll-move-right">
-  <div class="highlight-grid" style="margin:200px 0 0 -25px">
-    
-    <div 
-      class="highlight-item" 
-      style={`background: url('${section3.data.image}') no-repeat center; background-size: cover;`}
-    ></div>
 
-    <div class="highlight-text">
-      <Section3Content />
+  <div class="highlight-grid">
+    
+       <div class="highlight-text">
+      
       <a class="button" href={section3.data.buttonLink}>
         {section3.data.buttonText}
       </a>
+      <Section3Content />
     </div>
-</div>
-</div>
 
-<div class="scroll-move-left">
-<div class="highlight-grid">
-    <div class="highlight-text">
-      <Section4Content />
+
+  <div class="highlight-text">
+      
       <a class="button" href={section4.data.buttonLink}>
         {section4.data.buttonText}
       </a>
+      <Section4Content />
     </div>
-
-    <div 
-      class="highlight-item" 
-      style={`background: url('${section4.data.image}') no-repeat center; background-size: cover;`}
-    ></div>
-  </div>
+ 
   </div>
 
+</section>
+
+ <section>
   <HomeBlog />
 
-  
+  </section>
 </Layout>
 
 <style>

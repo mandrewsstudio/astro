@@ -112,7 +112,7 @@ h4 {
 
 .intro h1 {
     
-    margin-left: 50%;
+    margin-left: 25%;
     color: #fff;
 }
 
@@ -422,7 +422,7 @@ margin-top: -10px;
     width: 50%;
     border-radius: 0px;
     object-fit:cover;
-    margin-left: 50%;
+    margin-left: 25%;
     object-position: bottom;
      display: block;
 }

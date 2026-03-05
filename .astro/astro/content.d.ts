@@ -333,6 +333,13 @@ declare module 'astro:content' {
   collection: "home";
   data: InferEntrySchema<"home">
 } & { render(): Render[".md"] };
+"Section5.md": {
+	id: "Section5.md";
+  slug: "section5";
+  body: string;
+  collection: "home";
+  data: InferEntrySchema<"home">
+} & { render(): Render[".md"] };
 };
 "ourkidsclimate": {
 "Section1.md": {

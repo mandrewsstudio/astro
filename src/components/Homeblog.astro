@@ -10,9 +10,9 @@ const sortedPosts = posts.sort((a, b) =>
 
 const recentPosts = sortedPosts.slice(0, 3);
 ---
-<div style="margin: 12em 2.5em ;">
-<WorkGrid columns={4} >
-    <div>Thoughts in progress</div>
+<div class="homeblog">
+<WorkGrid columns={3}>
+     
   {recentPosts.map((post) => (
     <div>
           <!-- Featured Image -->
@@ -31,7 +31,7 @@ const recentPosts = sortedPosts.slice(0, 3);
             <h3 style="margin: 5px 0 0 0;">
               {post.data.title}
             </h3>
-            <p style="padding-right:10px">{post.data.description}</p>
+            <p>{post.data.description}</p>
             <p><small>{new Date(post.data.date).toLocaleDateString('en-GB')}</small></p></a>
           </div>
           </div>

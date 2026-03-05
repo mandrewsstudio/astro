@@ -70,10 +70,10 @@ h5 {
 }
 
 h1 {
-    font-size: 43px;
-    margin-bottom: 1rem;
+    font-size: 45px;
+    margin-bottom: 1em;
     line-height: 109%;
-    max-width:400px;
+    max-width:450px;
 }
 
 h2 {
@@ -111,8 +111,7 @@ h4 {
 }
 
 .intro h1 {
-    
-    margin: 2em 0 1em 50%;
+    margin: 0.7em 25% 2em 25%;
     color: #fff;
 }
 
@@ -241,6 +240,8 @@ nav a {
     border-bottom: 1px rgb(221, 52, 33) solid;
     opacity: 1!important;
 }
+
+
 
 
 /* ==================== */
@@ -422,7 +423,7 @@ margin-top: -10px;
     width: 50%;
     border-radius: 0px;
     object-fit:cover;
-    margin-left: 50%;
+    margin: 5em 25% 0 25%;
     object-position: bottom;
      display: block;
 }
@@ -473,14 +474,13 @@ margin-top: -10px;
 .highlight-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0;
-    margin: 100px auto 100px 0;
-    background-color: white;
+    gap: 3em;
+    padding: 0 25% 10em 25%;
     border-radius: 10px;
     max-width: 100%;
- row-gap: 100px;
+    row-gap: 1em;
     min-height: fit-content;
-    border: 1px white solid;
+    color: #fff;
 }
 
 .highlight-item {
@@ -490,9 +490,19 @@ margin-top: -10px;
 
 
 
-.highlight-text {
-    padding: 0 0 2vw 2.5em !important;
-    width: 28vw;
+.highlight-text p {
+ font-size: 19px;
+}
+
+.highlight-text .button {
+    color: #fff;
+    font-size:25px;
+    padding: 3px 0 ;
+    border-bottom: 1px rgb(255, 255, 255) dotted;
+}
+
+.homeblog {
+  margin: 2.5em 1em 2.5em 25% ;
 }
 
 .arrow {
@@ -554,20 +564,16 @@ footer {
     color: white;
 }
 
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    color: white;
-}
+
 
 footer .text-center {
     display: none;
 }
 
 footer .container {
-    width:470px;
-    margin:0 0 0 17vw;
+width:25%;
+    margin:0 50% 0 25%;
+    padding: 0 10px 0 0;
 }
 
 footer a {
@@ -766,7 +772,6 @@ nav {
 
     .work-grid-3 {
         grid-template-columns: 1fr;
-        padding-right: 10%;
     }
 
     .work-grid {
@@ -799,17 +804,16 @@ nav {
 .intro h1 {
     
     color: #fff;
-    max-width: 250px;
-    font-size: 1.8em;
-    margin:120px 0 30px 6vw !important;
+    font-size: 2.1em;
+    margin:0.5em 10vw 30px 10vw !important;
 }
 
 
     .intro video {
-    width: 94vw;
+    width: 80vw;
     border-radius: 0px;
     object-fit:cover;
-    margin: 0 0 0 6vw;
+    margin: 3em 10vw 0 10vw;
 
     object-position: bottom;
      display: block;
@@ -864,7 +868,8 @@ margin-top: -10px;
     .highlight-grid {
         grid-template-columns: 1fr;
          row-gap: 10px;
-         margin: 50px 0 !important;
+         margin: 10px 0 6em 0 !important;
+         padding:2em  10vw 3em 10vw;
     }
 
     .highlight-item {
@@ -875,10 +880,16 @@ margin-top: -10px;
     
     }
     .highlight-text {
-        margin: 0!important;
-        width:95%;
-            padding: 1em !important;;
+        margin: 0.5em 0 2em 0!important;
     }
+    .highlight-text p, .highlight-text .button {
+    font-size: 18px;    
+}
+
+.homeblog {
+  margin: 2.5em 2em 2.5em 2em ;
+  padding: 0!important;
+}
 
     .scroll-move-left .highlight-text {
         order:2;
