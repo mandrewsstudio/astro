@@ -1,0 +1,68 @@
+---
+import WorkLayout from "../../layouts/WorkLayout.astro";
+import WorkPara from "../../components/WorkPara.astro";
+import WorkItemWide from "../../components/WorkItemWide.astro";
+import WorkGrid from "../../components/WorkGrid.astro";
+import WorkItem from "../../components/WorkItem.astro";
+
+import { getEntryBySlug } from "astro:content";
+
+// Load markdown sections
+const section1 = await getEntryBySlug("ourpower", "section1");
+const section2 = await getEntryBySlug("ourpower", "section2");
+const section3 = await getEntryBySlug("ourpower", "section3");
+const section4 = await getEntryBySlug("ourpower", "section4");
+
+// Prepare compiled HTML for each section
+const { Content: Section1Content } = await section1.render();
+const { Content: Section2Content } = await section2.render();
+const { Content: Section3Content } = await section3.render();
+const { Content: Section4Content } = await section4.render();
+---
+
+<WorkLayout title="Our Power">
+
+  <!-- Section 1 -->
+  <WorkPara title={section1.data.title}>
+    <Section1Content />
+  </WorkPara>
+
+  <WorkItemWide
+    type="video"
+    src="/images/ourpower/Our-Power-Logo-Endframe.mp4"
+  />
+  <WorkItemWide type="image" src="/images/ourpower/Our-Power-Posters.avif" alt="Posters" />
+
+  
+
+  <!-- Section 2 -->
+  <WorkPara subtitle={section2.data.title}>
+    <Section2Content />
+  </WorkPara>
+
+  <WorkItemWide type="video" src="/images/ourpower/Our-Power-Teaser.mp4" />
+
+  <WorkGrid columns={2}>
+    <WorkItem type="video" src="/images/ourpower/Our-Power-Icons.mp4" />
+    <WorkItem type="video" src="/images/ourpower/Our-Power-Arrows.mp4" alt="Project" />
+  </WorkGrid>
+
+  <WorkItemWide type="image" src="/images/ourpower/Our-Power-Sketches.avif" alt="Sketch" />
+
+  <!-- Section 3 -->
+  <WorkPara subtitle={section3.data.title}>
+    <Section3Content />
+  </WorkPara>
+  <WorkItemWide type="image" src="/images/ourpower/Our-Power-Logo.avif" alt="Logo" />
+
+  <WorkItemWide type="image" src="/images/ourpower/Our-Power-Guidelines.avif" alt="Guidelines" />
+
+  <!-- Section 4 -->
+  <WorkPara subtitle={section4.data.title}>
+    <Section4Content />
+  </WorkPara>
+
+  <WorkItemWide type="image" src="/images/ourpower/OurPower-Posts.avif" alt="Socials" />
+
+
+</WorkLayout>
