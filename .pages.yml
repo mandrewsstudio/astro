@@ -70,7 +70,23 @@ content:
         label: Content
         type: rich-text
 
-
+  - name:  ourpower
+    label: "Our Power"
+    type: collection
+    path: src/content/ourpower
+    view:
+      fields: [name, title, body]
+      sort: [name, title, body]
+      default:
+        sort: name
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: body
+        label: Content
+        type: rich-text
         
   - name: ourkidsclimate
     label: "Our Kids' Climate"
