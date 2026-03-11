@@ -1,5 +1,5 @@
 ---
-title: Main Headline
+title: Our Energy, Our Power
 ---
 The shift away from fossil fuels and towards renewables is well underway, so why aren’t Scotland’s people feeling the benefit?
 
