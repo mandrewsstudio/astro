@@ -1,10 +1,6 @@
 ---
-title: A global family of changemakers
+title: Our Energy, Our Power
 ---
-Our Kids' Climate is a global family of parent-led groups working to
-protect children from climate breakdown.
+The shift away from fossil fuels and towards renewables is well underway, so why aren’t Scotland’s people feeling the benefit?
 
-Their new brand positions Our Kids' Climate as a broad movement that
-welcomes parents, families and communities from across the world, and
-allows them to more effectively champion their member leaders and amplify
-their influence on lawmakers and government institutions.
+Our Power calls on the Scottish government to build an energy system that prioritises workers, residents and the planet over corporations and investors. We were tasked with creating a campaign brand that spoke to unions, climate groups and communities, making the case for community ownership and a fair deal for oil & gas workers.

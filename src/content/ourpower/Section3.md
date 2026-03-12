@@ -1,6 +1,6 @@
 ---
-title: The Logo
+title: Scotland's Energy
 ---
-We're particularly proud of this one. A logo that illustrates what's at the heart of the organisation: our kids. We knew we wanted an iconic symbol that could defy translation, and show the love, care and joy intrinsic to the movement.
+The logo is a hand-drawn lightning bolt that represents the electricity at the centre of the campaign, while referencing the geographical form of Scotland’s mainland and islands, firmly rooting the campaign in the country and its communities.
 
-When we realised the letters 'OKC', rotated 90°, resembled a child leaping over a horizon, we knew this had to be the logo.
+This hand-drawn energy is continued through the brand with a suite of hand-drawn icons that help the campaign talk about a range of issues – from jobs to wealth to housing – and bold 'Power Lines' used to emphasise words and themes.
