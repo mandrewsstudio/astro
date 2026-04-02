@@ -55,12 +55,16 @@ const { Content: Section4Content } = await section4.render();
   </WorkPara>
   <WorkItemWide type="image" src="/images/ourpower/Our-Power-Logo.avif" alt="Logo" />
 
-  <WorkItemWide type="image" src="/images/ourpower/Our-Power-Guidelines.avif" alt="Guidelines" />
+  <WorkGrid columns={2}>
+    <WorkItem type="video" src="/images/ourpower/Our-Power-Logo.mp4" />
+    <WorkItem type="image" src="/images/ourpower/Our-Power-lightning-scotland.avif" alt="Project" />
+  </WorkGrid>
 
   <!-- Section 4 -->
   <WorkPara subtitle={section4.data.title}>
     <Section4Content />
   </WorkPara>
+  <WorkItemWide type="image" src="/images/ourpower/Our-Power-Guidelines.avif" alt="Guidelines" />
 
   <WorkItemWide type="image" src="/images/ourpower/OurPower-Posts.avif" alt="Socials" />
 
