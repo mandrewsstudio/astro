@@ -32,72 +32,40 @@ const { Content: Section7Content } = await section7.render();
 
 <BaseLayout>
   <div class="container" style="padding-top:4.5rem">
-    <div class="work-para">
-      <h1>{section1.data.title}</h1>
-
-      <div>
-        <Section1Content />
-      </div>
-  </div>
-
-<div class="arrow">
-        <img src="/images/arrow.svg" alt="Arrow pointing right" />
-      </div>
-
-  </div>
-
-  <section id="contact">
-    <div class="container">
-
-      <div
-        class="work-grid-3"
-        style="padding: 0 0 7em 0;">
-
-        <div class="work-item">
-          <h3>{section2.data.title}</h3>
-            <Section2Content />
-        </div>
-        <div class="work-item">
-          <h3>{section3.data.title}</h3>
-            <Section3Content />
-        </div>
-        <div class="work-item">
-          <h3>{section4.data.title}</h3>
-            <Section4Content />
-        </div>
-      </div>
-
-      
-
-      
-    </div>
-  </section>
-
- 
-<div class="container">
-    <div class="about-grid" style="padding-bottom: 2em">
-      <div class="work-item" style="padding-right: 10%">
+    <div class="about-grid" style="gap:2em;">
         
-      </div>
-      <div class="work-item" style="padding-right: 10%">
-       <h3>{section5.data.title}</h3>
+        <div class="work-para" style="padding-top:0!important;padding-right:20%;">
+          <h1>{section1.data.title}</h1>
+        <Section1Content />
+        </div>
+
+    <WorkItem
+      type="image"
+      src="/images/about/M&L.avif" 
+      alt="Mike & Lorna"
+    />
+
+      <WorkItem
+      type="image"
+      src="/images/about/M&L2.avif" 
+      alt="Mike & Lorna"
+    />
+    
+    <div class="work-item" >
+      <img src="/images/about/Studio-cutaway.avif" 
+      alt="Mike & Lorna" />
+    
+</div>
+  <div style="padding-right:10%;padding-top:1em;padding-bottom:5em;">
+    <h3>{section5.data.title}</h3>
         <Section5Content />
-      </div>
+  </div>
       
-    </div>
 
-
-
-
-    <div class="work-item-wide" style="margin: 1em 0">
-  <img src="/images/Studio.avif" alt="Mike & Lorna" />
-    </div>
-    <div class="about-grid" style="padding: 1em 0">
-      <div class="work-item" style="padding-right: 10%">
+      <div style="padding-right: 10%">
         <h3><Section6Content />
 </h3>
-      </div>
-      <div class="work-item" style="padding-right: 10%">
+     
         <h3><Section7Content />
         </h3>
       </div>

@@ -459,8 +459,22 @@ margin-top: -10px;
 .about-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.7rem;
+    gap: 2em;
     margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+.about-grid [type="image"] img,
+.about-grid img:only-child {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-grid .work-item img {
+    width: 100%;
+    height: auto;
+    display: block; /* removes small gap below image */
 }
 
 .work-grid-3 {
