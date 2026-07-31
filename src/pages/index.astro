@@ -2,6 +2,7 @@
 import Layout from '../layouts/BaseLayout.astro';
 import HomeShowcase from '../components/ProjectShowcase.astro';
 import HomeBlog from '../components/Homeblog.astro';
+import WorkShowcase from '../components/WorkShowcase.astro';
 import { getEntryBySlug } from "astro:content";
 
 // Load markdown sections
@@ -22,32 +23,23 @@ const { Content: Section5Content } = await section5.render();
   
   <!-- section1 SECTION -->
   <section class="intro">
-    <div class="scroll-move-right">
-    <div class="inpro"><img src="/images/In-Prog.svg"></div>
-  </div>
-    <div class="scroll-move-right">
-    <div class="gress" style="margin-left: -25px;">
-      <img src="/images/gress.svg">
-      <div class="loader">
-      <img src="/images/IPLogoWhite.gif">
-    </div></div>
-    </div>
+    
  
       
-
+<h1>{section1.data.title}</h1>
 
 
     <a href="/work/" style="border-bottom: none">
       <video autoplay muted playsinline loop>
-        <source src='/images/IP-Intro-3.mp4' type="video/mp4" />
+        <source src='/images/IP-Intro-26.mp4' type="video/mp4" />
         Your browser does not support the video tag.
       </video>  
     </a>
-    <h1>{section1.data.title}</h1>
+    
 
   <!-- HIGHLIGHT SECTION -->
 
-  <div class="highlight-grid">
+  <div class="highlight-grid" style="margin-top: 5rem;margin-bottom: 4rem!important;">
     
        <div class="highlight-text">
       <a class="button" href={section4.data.buttonLink}>
@@ -55,6 +47,7 @@ const { Content: Section5Content } = await section5.render();
       </a>
       <Section3Content />
     </div>
+
 
 
   <div class="highlight-text">
@@ -69,6 +62,8 @@ const { Content: Section5Content } = await section5.render();
   </div>
 
 </section>
+
+
 
  <section>
   <HomeBlog />

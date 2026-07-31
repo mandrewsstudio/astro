@@ -5,4 +5,4 @@ buttonText: Our Work →
 buttonLink: /work/
 ---
 
-Based in Glasgow, we collaborate with organisations and movements worldwide
+Based in Glasgow, we collaborate with organisations and movements worldwide.

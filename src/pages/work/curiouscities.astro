@@ -1,0 +1,130 @@
+---
+// src/pages/work/curiouscities.astro
+import WorkLayout from "../../layouts/WorkLayout.astro";
+import WorkPara from "../../components/WorkPara.astro";
+import WorkItemWide from "../../components/WorkItemWide.astro";
+import WorkGrid from "../../components/WorkGrid.astro";
+import WorkItem from "../../components/WorkItem.astro";
+import { getEntryBySlug } from "astro:content";
+
+// Load markdown sections
+const section1 = await getEntryBySlug("curiouscities", "section1");
+const section2 = await getEntryBySlug("curiouscities", "section2");
+const section3 = await getEntryBySlug("curiouscities", "section3");
+
+
+// Prepare compiled HTML for each section
+const { Content: Section1Content } = await section1.render();
+const { Content: Section2Content } = await section2.render();
+const { Content: Section3Content } = await section3.render();
+
+---
+
+<WorkLayout title="Curious Cities">
+  
+
+  
+
+  <WorkPara title={section1.data.title}>
+    <Section1Content />
+  </WorkPara>
+
+<WorkItemWide
+    type="video"
+    src="/images/curiouscities/CC-Logos-Wide.mp4"
+  />
+
+  <WorkItemWide
+    type="video"
+    src="/images/curiouscities/CC-Loop.mp4"
+    alt="Curious Cities"
+  />
+
+  <WorkGrid columns={2}>
+    <WorkItem
+      type="image"
+      src="/images/curiouscities/CC-Podium.avif"
+      alt="Curious Cities Podium"
+    />
+    <WorkItem
+      type="image"
+      src="/images/curiouscities/CC-Tote.avif"
+      alt="Curious Cities Tote"
+    />
+  </WorkGrid>
+
+  <WorkPara subtitle={section2.data.title}>
+    <Section2Content />
+  </WorkPara>
+
+  <WorkItemWide
+    type="image"
+    src="/images/curiouscities/CC-Cutouts.avif"
+    alt="Curious Cities Shapes"
+  />
+
+  <WorkItemWide
+    type="image"
+    src="/images/curiouscities/CC-Montage.avif"
+    alt="Curious Cities Assets"
+  />
+
+  <WorkItemWide
+    type="image"
+    src="/images/curiouscities/CC-Poster-bg.avif"
+    alt="Curious Cities Posters"
+  />
+
+  
+
+  <WorkItemWide
+    type="image"
+    src="/images/curiouscities/CC-Notebook.avif"
+    alt="Curious Cities Notebook"
+  />
+
+  <WorkGrid columns={2}>
+    <WorkItem
+      type="image"
+      src="/images/curiouscities/CC-Tshirt.avif"
+      alt="Curious Cities T-shirt"
+    />
+    <WorkItem
+      type="image"
+      src="/images/curiouscities/CC-Podium2.avif"
+      alt="Curious Cities Podium"
+    />
+    
+  </WorkGrid>
+
+  <WorkPara subtitle={section3.data.title}>
+    <Section3Content />
+  </WorkPara>
+
+  <WorkItemWide
+    type="video"
+    src="/images/curiouscities/CC-PavementPlayground.mp4"
+    alt="Curious Cities Pavement Playground"
+  />
+
+  <WorkItemWide
+    type="image"
+    src="/images/curiouscities/CC-Lads.avif"
+    alt="Curious Cities"
+  />
+
+  <WorkGrid columns={2}>
+    <WorkItem
+      type="image"
+      src="/images/curiouscities/CC-Agenda.avif"
+      alt="Curious Cities Agenda"
+    />
+    <WorkItem
+      type="image"
+      src="/images/curiouscities/CC-Poster-table.avif"
+      alt="Curious Cities Poster Table"
+    />
+    
+  </WorkGrid>
+  
+</WorkLayout>
