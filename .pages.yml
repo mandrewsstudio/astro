@@ -266,3 +266,21 @@ content:
       - name: body
         label: Content
         type: rich-text
+
+  - name: curiouscities
+    label: "Curious Cities"
+    type: collection
+    path: src/content/curiouscities
+    view:
+      fields: [name, title, body]
+      sort: [name, title, body]
+      default:
+        sort: name
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: body
+        label: Content
+        type: rich-text
