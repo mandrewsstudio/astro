@@ -1,0 +1,88 @@
+---
+// src/pages/purposedisruptors.astro
+import WorkLayout from "../../layouts/WorkLayout.astro";
+import WorkPara from "../../components/WorkPara.astro";
+import WorkItemWide from "../../components/WorkItemWide.astro";
+import WorkGrid from "../../components/WorkGrid.astro";
+import WorkItem from "../../components/WorkItem.astro";
+import { getEntryBySlug } from "astro:content";
+
+// Load markdown sections
+const section1 = await getEntryBySlug("wasps", "section1");
+const section2 = await getEntryBySlug("wasps", "section2");
+const section3 = await getEntryBySlug("wasps", "section3");
+
+
+// Prepare compiled HTML for each section
+const { Content: Section1Content } = await section1.render();
+const { Content: Section2Content } = await section2.render();
+const { Content: Section3Content } = await section3.render();
+
+---
+---
+
+<WorkLayout title="Wasps">
+  <WorkPara title={section1.data.title}>
+    <Section1Content />
+  </WorkPara>
+
+  <WorkItemWide
+    type="image"
+    src="/images/wasps/1-painting-for-people.png"
+    alt="Wasps project"
+  />
+  <WorkItemWide
+    type="image"
+    src="/images/wasps/2-Wasps-Poster.avif"
+    alt="Wasps project"
+  />
+  <WorkPara subtitle={section2.data.title}>
+    <Section2Content />
+  </WorkPara>
+   <WorkItemWide
+    type="image"
+    src="/images/wasps/3-Wasps-WIP.webp"
+    alt="Wasps project"
+  />
+
+  <WorkGrid columns={2}>
+    <WorkItem
+      type="image"
+      src="/images/wasps/4-poster.avif"
+      alt="Wasps project"
+    />
+    <WorkItem
+      type="image"
+      src="/images/wasps/5-poster.avif"
+      alt="Wasps project"
+    />
+    <WorkItem
+      type="image"
+      src="/images/wasps/6-poster.avif"
+      alt="Wasps project"
+    />
+    <WorkItem
+      type="image"
+      src="/images/wasps/7-poster.avif"
+      alt="Wasps project"
+    />
+  </WorkGrid>
+<WorkPara subtitle={section3.data.title}>
+    <Section3Content />
+  </WorkPara>
+  <WorkItemWide
+    type="image"
+    src="/images/wasps/8-wasps-banners.avif"
+    alt="Wasps project"
+  />
+
+  
+
+  
+
+  
+
+  
+
+  
+</WorkLayout>
