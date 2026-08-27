@@ -10,50 +10,88 @@ const sortedPosts = posts.sort((a, b) =>
 ---
 <BaseLayout>
   <div class="container" style="padding-bottom: 20px">
-<div style="margin-bottom:10em;">
-                    <h1>Thinking in progress</h1>
-</div>
-           
-      
-      {sortedPosts.map((post) => (
-        <div style="margin: 3rem 0 0 0; display: grid; grid-template-columns: 40vw repeat(2, 1fr); gap: 1rem; align-items: start;">
-          
-          <!-- Featured Image -->
-          {post.data.featuredImage && (
-            <div>
-              <img 
-                src={post.data.featuredImage} 
-                alt={post.data.title}
-                style="width: 100%; object-fit: cover;aspect-ratio: 8.5 / 6;"
-              />
-            </div>
-          )}
-          
-          <!-- Post Content -->
-          <div>
-            <h3 style="margin-top: 0;">
-              <a href={`/thoughts/${post.slug}/`}>{post.data.title}</a>
-            </h3>
-            <p><em>{post.data.description}</em></p>
-            <p><small>Published {new Date(post.data.date).toLocaleDateString()}</small></p>
-          </div>
-          
-        </div>
-      ))}
+    <div style="margin-bottom:10em;">
+      <h1>Thinking in progress</h1>
     </div>
+           
+    {sortedPosts.map((post) => (
+      <div class="article">
+        <!-- Featured Image -->
+        {post.data.featuredImage && (
+          <div class="image-column">
+            <img 
+              src={post.data.featuredImage} 
+              alt={post.data.title}
+            />
+          </div>
+        )}
+        
+        <!-- Post Content -->
+        <div class="content-column">
+          <h3>
+            <a href={`/thoughts/${post.slug}/`}>{post.data.title}</a>
+          </h3>
+          <p class="description"><em>{post.data.description}</em></p>
+          <p class="date"><small>Published {new Date(post.data.date).toLocaleDateString()}</small></p>
+        </div>
+      </div>
+    ))}
   </div>
 </BaseLayout>
 
-<style>
-  article {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 4.5rem 2rem 2rem 2rem;
+<style> 
+  .article {
+    margin: 3rem 0 0 0; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem; 
+    align-items: start;
+    width: 100%;
+  }
+  
+  .image-column {
+    width: 100%;
+  }
+  
+  .image-column img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 8.5 / 6;
+    display: block;
+  }
+  
+  .content-column {
+    text-align: left;
+    padding: 0 !important;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .content-column h3 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .content-column h3 a {
+    text-decoration: none;
+  }
+  
+  .content-column .description {
+    margin: 0.5rem 0 0 0;
+    padding: 0;
+  }
+  
+  .content-column .date {
+    margin: 0.25rem 0 0 0;
+    padding: 0;
   }
   
   /* Responsive layout for mobile */
   @media (max-width: 768px) {
-    article {
+    .article {
       grid-template-columns: 1fr !important;
       gap: 1rem !important;
     }
