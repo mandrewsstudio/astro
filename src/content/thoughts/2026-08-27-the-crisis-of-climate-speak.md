@@ -36,7 +36,7 @@ A policy term popularised around COP26 in Glasgow, it has come to mean ‘expens
 When explained, it's a pretty common-sense idea that most people would probably be on board with. Sure, it's a difficult concept to put into a single term, but maybe we don’t need to.
 
 From ‘The Great Reset’ to ‘Build Back Better,’ ‘15 minute cities’ and ‘Net-zero’ — these are all terms that only represent part of their intended definition. When our beloved phrase gets severed from its meaning, it’s open to interpretation, misappropriation and abuse.   
-  
+
 If you didn’t have the jargon, how would you say it?
 
 ![](</thoughts/images/image (7).avif>)
@@ -63,7 +63,7 @@ A ‘Just Transition’ – an effort to clarify that the switch to clean energy
 
 This well-meaning phrase is ironically obscure to the people it aims to defend.
 
-‘Transition’ is a passive, vaguely technocratic word that sounds like something that just sort of happens.   
+‘Transition’ is a passive, vaguely technocratic word that sounds like something that just sort of happens.  
 It’s a slow word (three syllables) that refers to a process that generally takes a while. It lacks urgency and motivation. Adding the prefix “Just” only makes it sound more like legalese, further confusing the meaning (just a transition? The only transition?)
 
 Rather than falling back on shorthand, or trying to invent a new think-tanked and focus-grouped phrase, we should simply say what we mean.
