@@ -248,3 +248,21 @@ content:
       - name: body
         label: Content
         type: rich-text
+
+  - name: wasps
+    label: "Wasps"
+    type: collection
+    path: src/content/wasps
+    view:
+      fields: [name, title, body]
+      sort: [name, title, body]
+      default:
+        sort: name
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: body
+        label: Content
+        type: rich-text
